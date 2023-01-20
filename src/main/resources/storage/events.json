@@ -3,8 +3,11 @@
     "name": "ten su kien lich su",
     "time": "thoi gian to chuc",
     "dynasty": "ten trieu dai",
+    "story":"abc",
+    "dynasties":["Hong bang","xyz"],
+    "events": [" su kien lich su 1", "su kien lich su 2"],
     "festivals": ["Le hoi van hoa 1", "Le hoi van hoa 2"],
-    "historicalSites": ["di tich lien quan"],
-    "historicalFigures": ["Nhan vat 1", "Nhan vat 2", "Nhan vat 3"]
+    "historicalSites": ["Ha Noi"],
+    "historicalFigures": ["Nguyen Lu", "Nguyen Nhac", "Nguyen Anaaah"]
   }
 ]

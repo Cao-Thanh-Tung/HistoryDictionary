@@ -2,8 +2,11 @@
   {
     "name": "ten dia diem",
     "address": "vi tri",
+    "story":"abc",
+	"dynasties":["Hong bang","xyz"],
     "events": [" su kien lich su 1", "su kien lich su 2"],
     "festivals": ["Le hoi van hoa 1", "Le hoi van hoa 2"],
-    "historicalFigures": ["Nguyen Lu", "Nguyen Nhac", "Nguyen Anh"]
+    "historicalSites": ["Ha Noi"],
+    "historicalFigures": ["Nguyen Lu", "Nguyen Nhac", "Nguyen Anaaah"]
   }
 ]
