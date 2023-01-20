@@ -1,32 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.BorderPane?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
 <?import org.controlsfx.control.textfield.CustomTextField?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import org.controlsfx.glyphfont.Glyph?>
+<?import java.lang.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity"
-	minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
-	prefWidth="1280.0" xmlns="http://javafx.com/javafx/19"
-	xmlns:fx="http://javafx.com/fxml/1">
-	<center>
-		<ToolBar fx:id="barSearch">
-			<items>
-				<CustomTextField fx:id="fieldSearch"
-					styleClass="searchField">
+   <children>
+      <ToolBar id="searchbar" minHeight="37.0" minWidth="926.0" prefHeight="51.0" prefWidth="995.0">
+         <items>
+         	<CustomTextField fx:id="fieldSearch"
+					styleClass="searchField" minHeight="37.0" minWidth="642.0" >
 					<left>
 						<Label styleClass="searchBoxLabel">
 							<graphic>
-								<FontAwesomeIconView
-									styleClass="searchBoxLabelIcon" />
+								<Glyph fontFamily="FontAwesome" icon="SEARCH"/>	
+								<padding>
+                  					<Insets left="12.0" right="12.0" />
+               					</padding>
 							</graphic>
 						</Label>
 					</left>
 				</CustomTextField>
-			</items>
-
-		</ToolBar>
-	</center>
-</BorderPane>
+        
+            <MenuButton fx:id="menuType" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="37.0" minWidth="304.0" mnemonicParsing="false" text="MenuButton">
+               <padding>
+                  <Insets left="8.0" />
+               </padding>
+               <items>
+                  <MenuItem styleClass="itemType" mnemonicParsing="false">
+                     <graphic>
+                        <CheckBox minHeight="37.0" minWidth="274.0" mnemonicParsing="false" text="Triều đại lịch sử">
+                           <padding>
+                              <Insets left="8.0" />
+                           </padding>
+                        </CheckBox>
+                     </graphic>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem styleClass="itemType" mnemonicParsing="false" style="-fx-background-radius: 12;">
+                     <graphic>
+                        <CheckBox minHeight="37.0" minWidth="-Infinity" mnemonicParsing="false" text="Nhân vật lịch sử">
+                           <padding>
+                              <Insets left="8.0" />
+                           </padding>
+                        </CheckBox>
+                     </graphic>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem styleClass="itemType" mnemonicParsing="false" style="-fx-background-radius: 12;">
+                     <graphic>
+                        <CheckBox minHeight="37.0" minWidth="-Infinity" mnemonicParsing="false" text="Sự kiện lịch sử">
+                           <padding>
+                              <Insets left="8.0" />
+                           </padding>
+                        </CheckBox>
+                     </graphic>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem styleClass="itemType" mnemonicParsing="false" style="-fx-background-radius: 12;">
+                     <graphic>
+                        <CheckBox minHeight="37.0" minWidth="-Infinity" mnemonicParsing="false" text="Địa điểm di tích lịch sử">
+                           <padding>
+                              <Insets left="8.0" />
+                           </padding>
+                        </CheckBox>
+                     </graphic>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem styleClass="itemType" mnemonicParsing="false" style="-fx-background-radius: 12;">
+                     <graphic>
+                        <CheckBox minHeight="37.0" minWidth="-Infinity" mnemonicParsing="false" text="Lễ hội văn hóa Việt Nam">
+                           <padding>
+                              <Insets left="8.0" />
+                           </padding>
+                        </CheckBox>
+                     </graphic>
+                  </MenuItem>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem styleClass="itemType" mnemonicParsing="false" style="-fx-background-radius: 12;">
+                     <graphic>
+                        <CheckBox minHeight="37.0" minWidth="-Infinity" mnemonicParsing="false" text="Tất cả">
+                           <padding>
+                              <Insets left="8.0" />
+                           </padding>
+                        </CheckBox>
+                     </graphic>
+                  </MenuItem>
+               </items>
+            </MenuButton>
+         </items>
+         <padding>
+            <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
+         </padding>
+      </ToolBar>
+   </children>

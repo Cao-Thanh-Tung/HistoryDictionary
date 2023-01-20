@@ -1,3 +1,4 @@
+
 package frontend.view;
 
 import javafx.application.Application;
@@ -20,7 +21,7 @@ public class Searchbar extends Application {
 		// TODO Auto-generated method stub
 		Parent root = FXMLLoader.load(getClass().getResource("/frontend/model/searchbar.fxml"));
 		Scene scene = new Scene(root);
-		
+		scene.getStylesheets().add(getClass().getResource("/frontend/style/searchbar.css").toExternalForm());
 		state.setTitle("Searchbar");
 		state.setScene(scene);
 		state.show();

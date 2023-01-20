@@ -1,0 +1,22 @@
+#searchbar{
+	-fx-background-color: white;
+	-fx-background-radius: 20;
+	-fx-border-radius: 20;
+}
+#fieldSearch{
+	-fx-background-color: #F2F4F8;
+	-fx-background-radius: 12;
+	-fx-font-size: 16;
+}
+#menuType{
+	 -fx-border-width: 2; 
+	 -fx-border-radius: 12; 
+	 -fx-font-size: 16;
+	 -fx-background-color: white; 
+	 -fx-background-radius: 12; 
+	 -fx-border-color: #F2F4F8;
+}
+.itemType{
+	
+	
+}
