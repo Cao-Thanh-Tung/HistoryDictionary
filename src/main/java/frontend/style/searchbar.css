@@ -1,7 +1,5 @@
 #searchbar{
 	-fx-background-color: white;
-	-fx-background-radius: 20;
-	-fx-border-radius: 20;
 }
 #fieldSearch{
 	-fx-background-color: #F2F4F8;
@@ -19,4 +17,11 @@
 .itemType{
 	
 	
+}
+
+#searchbarSmall{
+	-fx-background-color: white;
+	-fx-background-radius: 12;
+	-fx-border-color: #F2F4F8;
+	-fx-border-radius: 12; 
 }

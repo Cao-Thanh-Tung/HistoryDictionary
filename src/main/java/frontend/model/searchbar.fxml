@@ -9,11 +9,12 @@
 <?import org.controlsfx.glyphfont.Glyph?>
 <?import java.lang.*?>
 
-   <children>
-      <ToolBar id="searchbar" minHeight="37.0" minWidth="926.0" prefHeight="51.0" prefWidth="995.0">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+      <ToolBar id="searchbar" minHeight="37.0" minWidth="740"  prefHeight="51.0">
          <items>
          	<CustomTextField fx:id="fieldSearch"
-					styleClass="searchField" minHeight="37.0" minWidth="642.0" >
+					styleClass="searchField" minHeight="37.0" minWidth="450.0" >
 					<left>
 						<Label styleClass="searchBoxLabel">
 							<graphic>
@@ -26,14 +27,14 @@
 					</left>
 				</CustomTextField>
         
-            <MenuButton fx:id="menuType" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="37.0" minWidth="304.0" mnemonicParsing="false" text="MenuButton">
+            <MenuButton fx:id="menuType" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="37.0" minWidth="242.0" mnemonicParsing="false" text="Thể loại">
                <padding>
                   <Insets left="8.0" />
                </padding>
                <items>
                   <MenuItem styleClass="itemType" mnemonicParsing="false">
                      <graphic>
-                        <CheckBox minHeight="37.0" minWidth="274.0" mnemonicParsing="false" text="Triều đại lịch sử">
+                        <CheckBox minHeight="37.0" minWidth="100.0" mnemonicParsing="false" text="Triều đại lịch sử">
                            <padding>
                               <Insets left="8.0" />
                            </padding>
@@ -97,4 +98,5 @@
             <Insets bottom="24.0" left="24.0" right="24.0" top="24.0" />
          </padding>
       </ToolBar>
-   </children>
+	</children>
+	</AnchorPane>

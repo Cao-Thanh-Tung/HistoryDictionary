@@ -2,13 +2,28 @@ package model;
 
 import java.util.List;
 
-public abstract class RelationshipObject {
-
+public abstract class HistoryObject {
+	protected String name;
+	protected String source;
+	protected String type;
+	protected String story;
 	protected List<String> events; // cac su kien lien quan
 	protected List<String> historicalSites;	// cac dia diem di tich lich su lien quan
 	protected List<String> historicalFigures;	// cac nhan vat lich su lien quan
 	protected List<String> festivals;			// cac le hoi lien quan
 	protected List<String> dynasties;			// cac trieu dai lien quan
+	public String getName() {
+		return this.name;
+	};
+	public String getSource() {
+		return this.source;
+	}
+	public String getType() {
+		return this.type;
+	}
+	public String getStory() {
+		return this.story;
+	}
 	protected String toLineString() {
 		String tmp = "";
 		for(String i: events) {

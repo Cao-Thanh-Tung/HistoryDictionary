@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root type="javafx.scene.control.ListCell" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml">
+    <graphic>
+      <VBox prefHeight="54.0" prefWidth="373.0" styleClass="matchResultItem">
+         <children>
+            <Label fx:id="titleLb" styleClass="title" text="Tieu de" />
+            <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+               <children>
+                  <Label fx:id="urlLb" styleClass="source" text="nguon trang web" />
+                  <Label fx:id="typeLb" styleClass="type" text="The loai" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+    </graphic>
+</fx:root>
+

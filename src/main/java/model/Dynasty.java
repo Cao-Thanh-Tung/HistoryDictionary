@@ -1,33 +1,21 @@
 package model;
 // Trieu dai
-public class Dynasty extends RelationshipObject{
-	public Dynasty(String source, String name, String time, String history) {
+public class Dynasty extends HistoryObject{
+	public Dynasty(String name, String source, String type, String time, String story) {
 		this.source = source;
+		this.type = type;
 		this.name = name;
 		this.time = time;
-		this.history = history;
+		this.story = story;
 	}
-	private String source;
-	private String name;
 	private String time;
-	private String history;
-	
-	public String getSource() {
-		return source;
-	}
-	public String getName() {
-		return name;
-	}
 	public String getTime() {
 		return time;
-	}
-	public String getHistory() {
-		return history;
 	}
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		return history+source+name+time+this.toLineString();
+		return story+source+name+time+this.toLineString();
 	}
 	
 }

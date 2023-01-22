@@ -6,7 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class MatchResultList extends Application {
+public class ResultList extends Application {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		launch();
@@ -15,9 +15,9 @@ public class MatchResultList extends Application {
 	@Override
 	public void start(Stage state) throws Exception {
 		// TODO Auto-generated method stub
-		Parent root = FXMLLoader.load(getClass().getResource("/frontend/model/matchResultList.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/frontend/model/resultList.fxml"));
 		Scene scene = new Scene(root);
-		scene.getStylesheets().add(getClass().getResource("/frontend/style/matchResultList.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("/frontend/style/resultItem.css").toExternalForm());
 		state.setTitle("Searchbar");
 		state.setScene(scene);
 		state.show();
