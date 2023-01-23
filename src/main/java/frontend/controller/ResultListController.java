@@ -9,12 +9,15 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import model.Event;
 import model.HistoryObject;
 
 public class ResultListController implements Initializable {
     @FXML
     public ListView<HistoryObject> resultListView;
+    @FXML
+    public TextField fieldSearch;
     private ObservableList<HistoryObject> historyObservableList;
 
     public ResultListController()  {
@@ -26,9 +29,17 @@ public class ResultListController implements Initializable {
                 new Event("Le hoi dong", "http:s","events","2","1","story"),
                 new Event("Le hoi dong1", "http:s1","events1","21","11","story1"),
                 new Event("Le hoi dong3", "http:s1","events1","21","11","story1"),
+                new Event("Le hoi dong3", "http:s1","events1","21","11","story1"),
+                new Event("Le hoi dong3", "http:s1","events1","21","11","story1"),
+                new Event("Le hoi dong3", "http:s1","events1","21","11","story1"),
+                new Event("Le hoi dong3", "http:s1","events1","21","11","story1"),
+                new Event("Le hoi dong3", "http:s1","events1","21","11","story1"),
+                new Event("Le hoi dong3", "http:s1","events1","21","11","story1"),
+                new Event("Le hoi dong3", "http:s1","events1","21","11","story1"),
+                new Event("Le hoi dong3", "http:s1","events1","21","11","story1"),
+                new Event("Le hoi dong3", "http:s1","events1","21","11","story1"),
                 new Event("Le hoi dong4", "http:s1","events1","21","11","story1")
         );
-
 
     }
 
@@ -36,6 +47,8 @@ public class ResultListController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
     	resultListView.setItems(historyObservableList);
     	resultListView.setCellFactory(oldListViewItem -> new ResultItemCell());
+    	System.out.println("hello");
+//    	resultListView.setVisible(false);
 
     }
 

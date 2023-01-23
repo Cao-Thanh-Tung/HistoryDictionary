@@ -11,12 +11,9 @@
 	-fx-font-weight: bold;
 }
 .matchResultItem .source{
-	-fx-text-fill: #999FAA;
-}
-.matchResultItem .source:selected:focused{
-	-fx-text-fill: white;
+	-fx-text-fill: green;
 }
 .matchResultItem .type{
 	-fx-font-style: italic;
-	-fx-text-fill: #999FAA;
+	-fx-text-fill: #DDDDDD;
 }

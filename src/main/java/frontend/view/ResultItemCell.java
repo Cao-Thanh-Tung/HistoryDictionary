@@ -35,7 +35,6 @@ public class ResultItemCell extends ListCell<HistoryObject> {
             throw new RuntimeException(e);
         }
     }
-    
 	@Override
     protected void updateItem(HistoryObject item, boolean empty) {
         super.updateItem(item, empty);
@@ -45,7 +44,7 @@ public class ResultItemCell extends ListCell<HistoryObject> {
             setContentDisplay(ContentDisplay.TEXT_ONLY);
         }
         else {
-            System.out.println(item.getName());
+            System.out.println("hi");
             titleLb.setText(item.getName());
             typeLb.setText("hello");
             urlLb.setText(item.getSource());

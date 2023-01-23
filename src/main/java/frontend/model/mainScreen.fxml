@@ -5,19 +5,28 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controller.ResultListController">
+   <top>
+      <fx:include source="searchbarSmall.fxml" BorderPane.alignment="CENTER"/>
+   </top>
    <center>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+      <VBox fx:id="a" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <fx:include source="searchbar.fxml"/>
-            <fx:include source="resultList.fxml"/>
+         	<fx:include id="searchbar" source="searchbar.fxml" />
+            <BorderPane fx:id="progressing" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="740.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   				<center>
+      				<ProgressIndicator BorderPane.alignment="CENTER" />
+   				</center>
+			</BorderPane>
+            <BorderPane fx:id="lvresult" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="740.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   				<center>
+      				<ListView fx:id="resultListView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   				</center>
+			</BorderPane>
          </children>
       </VBox>
    </center>
    <opaqueInsets>
       <Insets />
    </opaqueInsets>
-   <top>
-      <fx:include source="searchbarSmall.fxml" BorderPane.alignment="CENTER"/>
-   </top>
 </BorderPane>
