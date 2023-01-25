@@ -1,0 +1,89 @@
+[ {
+  "href" : "/nhan-vat/kinh-duong-vuong",
+  "name" : "Kinh Dương Vương",
+  "period" : "/dong-lich-su/hong-bang-va-van-lang",
+  "birth" : null,
+  "death" : null,
+  "reignTime" : "2879 TCN 1 - ?",
+  "predecessor" : null,
+  "successor" : "Lạc Long Quân",
+  "aliases" : null,
+  "realName" : "Lộc Tục (祿續)"
+}, {
+  "href" : "/nhan-vat/lac-long-quan",
+  "name" : "Lạc Long Quân",
+  "period" : "/dong-lich-su/hong-bang-va-van-lang",
+  "birth" : null,
+  "death" : null,
+  "reignTime" : "? - Thế kỷ VII TCN",
+  "predecessor" : "Kinh Dương Vương",
+  "successor" : "Hùng Vương thứ I",
+  "aliases" : null,
+  "realName" : null
+}, {
+  "href" : "/nhan-vat/ngo-si-lien",
+  "name" : "Ngô Sĩ Liên",
+  "period" : "/dong-lich-su/hong-bang-va-van-lang",
+  "birth" : "Khoảng đầu thế kỷ 15 Chương Đức, Sơn Nam, Đại Việt",
+  "death" : "không rõ Đại Việt",
+  "reignTime" : null,
+  "predecessor" : null,
+  "successor" : null,
+  "aliases" : null,
+  "realName" : null
+}, {
+  "href" : "/nhan-vat/nha-thuong",
+  "name" : "nhà Thương",
+  "period" : "/dong-lich-su/hong-bang-va-van-lang",
+  "birth" : null,
+  "death" : null,
+  "reignTime" : null,
+  "predecessor" : null,
+  "successor" : null,
+  "aliases" : null,
+  "realName" : null
+}, {
+  "href" : "/nhan-vat/nha-chu",
+  "name" : "nhà Chu",
+  "period" : "/dong-lich-su/hong-bang-va-van-lang",
+  "birth" : null,
+  "death" : null,
+  "reignTime" : null,
+  "predecessor" : null,
+  "successor" : null,
+  "aliases" : null,
+  "realName" : null
+}, {
+  "href" : "/nhan-vat/ho-ton",
+  "name" : "Hồ Tôn",
+  "period" : "/dong-lich-su/hong-bang-va-van-lang",
+  "birth" : null,
+  "death" : null,
+  "reignTime" : null,
+  "predecessor" : null,
+  "successor" : null,
+  "aliases" : null,
+  "realName" : null
+}, {
+  "href" : "/nhan-vat/ly-thai-to",
+  "name" : "Lý Thái Tổ",
+  "period" : "/dong-lich-su/hong-bang-va-van-lang",
+  "birth" : "8 tháng 3, 974 Từ Sơn, Bắc Ninh",
+  "death" : "31 tháng 3, 1028 (54 tuổi) Long An điện, Thăng Long",
+  "reignTime" : "21 tháng 11 năm 1009 – 31 tháng 3 năm 1028 (18 năm, 131 ngày)",
+  "predecessor" : "Sáng lập triều đại",
+  "successor" : "Lý Thái Tông",
+  "aliases" : "Thuận Thiên (順天)",
+  "realName" : "Lý Công Uẩn (李公蘊)"
+}, {
+  "href" : "/nhan-vat/thanh-vuong",
+  "name" : "Thành Vương",
+  "period" : "/dong-lich-su/hong-bang-va-van-lang",
+  "birth" : null,
+  "death" : null,
+  "reignTime" : null,
+  "predecessor" : null,
+  "successor" : null,
+  "aliases" : null,
+  "realName" : null
+} ]
