@@ -17,4 +17,9 @@ module HistoryDictionary {
 	requires javafx.fxml;
 	requires javafx.graphics;
 	requires json.simple;
+	requires jackson.databind;
+	requires java.desktop;
+	requires org.jsoup;
+	requires jackson.core;
+	requires org.json;
 }
