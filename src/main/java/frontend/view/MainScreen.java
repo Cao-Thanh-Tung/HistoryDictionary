@@ -20,8 +20,10 @@ public class MainScreen extends Application {
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/frontend/style/searchbar.css").toExternalForm());
 		scene.getStylesheets().add(getClass().getResource("/frontend/style/resultItem.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("/frontend/style/content.css").toExternalForm());
 		primaryStage.setTitle("Searchbar");
 		primaryStage.setScene(scene);
+		primaryStage.setResizable(false);
 		primaryStage.show();
 	}
 

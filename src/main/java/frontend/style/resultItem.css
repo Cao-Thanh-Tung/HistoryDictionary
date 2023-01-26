@@ -1,6 +1,4 @@
 .matchResultItem {
-	-fx-border-width:1;
-	-fx-border-color:#999FAA;
 	-fx-padding:12;
 	-fx-min-width:600;
 	-fx-min-height:50;
@@ -15,5 +13,5 @@
 }
 .matchResultItem .type{
 	-fx-font-style: italic;
-	-fx-text-fill: #DDDDDD;
+	-fx-text-fill: green;
 }

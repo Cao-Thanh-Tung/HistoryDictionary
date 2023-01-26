@@ -1,11 +1,6 @@
 #searchbar{
 	-fx-background-color: white;
 }
-#fieldSearch{
-	-fx-background-color: #F2F4F8;
-	-fx-background-radius: 12;
-	-fx-font-size: 16;
-}
 #menuType{
 	 -fx-border-width: 2; 
 	 -fx-border-radius: 12; 
@@ -18,7 +13,11 @@
 	
 	
 }
-
+.searchField{
+	-fx-background-color: #F2F4F8;
+	-fx-background-radius: 12;
+	-fx-font-size: 16;
+}
 #searchbarSmall{
 	-fx-background-color: white;
 	-fx-background-radius: 12;
