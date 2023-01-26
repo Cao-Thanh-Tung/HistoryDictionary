@@ -249,7 +249,7 @@ public class ResultListController implements Initializable {
 	            protected LinkedList<HistoryObject> call() throws Exception {
 	                //DO YOU HARD STUFF HERE
 	            	String searchKeyword = fieldSearch.getText();
-	            	Thread.sleep(3000);
+	            	Thread.sleep(300);
 	                return search(searchKeyword);
 	            }
 	        };
