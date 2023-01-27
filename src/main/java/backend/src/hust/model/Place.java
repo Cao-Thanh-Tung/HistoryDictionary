@@ -8,6 +8,11 @@ import backend.src.hust.Crawler;
 import java.io.IOException;
 import java.util.HashMap;
 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
 public class Place extends Model{
     private String national;
     private String location;

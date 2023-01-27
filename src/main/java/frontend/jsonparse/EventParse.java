@@ -1,4 +1,4 @@
-package jsonparse;
+package frontend.jsonparse;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -10,7 +10,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import model.Event;
+import frontend.model.Event;
 
 public class EventParse {
 	private static LinkedList<Event> EventObjectList = new LinkedList<Event>();
@@ -19,7 +19,7 @@ public class EventParse {
 		EventObjectList.clear();;
 		JSONParser jsonParser = new JSONParser();
 		try {
-			FileReader reader = new FileReader("src\\main\\resources\\storage\\events.json");
+			FileReader reader = new FileReader("src\\main\\resources\\storage\\event.json");
 			Object obj = jsonParser.parse(reader);
 			JSONArray EventList = (JSONArray) obj;
 			EventList.forEach(Event -> parseEventObject((JSONObject) Event));
@@ -40,6 +40,6 @@ public class EventParse {
 		String source = (String) Event.get("source");
 		String time = (String) Event.get("time");
 		String story = (String) Event.get("story");
-		EventObjectList.add(new Event(name, source, "Event", time, story));
+		EventObjectList.add(new Event(name, source, time, story));
 	}
 }

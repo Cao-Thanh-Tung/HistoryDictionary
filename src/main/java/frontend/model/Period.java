@@ -1,9 +1,8 @@
-package model;
+package frontend.model;
 // Trieu dai
-public class Dynasty extends HistoryObject{
-	public Dynasty(String name, String source, String type, String time, String story) {
+public class Period extends Model{
+	public Period(String name, String source, String time, String story) {
 		this.source = source;
-		this.type = type;
 		this.name = name;
 		this.time = time;
 		this.story = story;

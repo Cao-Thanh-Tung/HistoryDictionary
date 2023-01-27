@@ -83,7 +83,7 @@ public class Period extends Model{
 
                         // Nếu là link thông tin nhân vật
                         if (hrefNode.attr("href").contains("/nhan-vat/")) {
-                            Person person = new Person(hrefNode.text(), hrefNode.attr("href"), this.getHref());
+                            Person person = new Person(hrefNode.text(), hrefNode.attr("source"), this.getHref());
                             boolean isExisted = false;
                             for (Person p : this.getPeople()) {
                                 if(p.getHref().equals(person.getHref())) {

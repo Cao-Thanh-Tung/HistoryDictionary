@@ -1,12 +1,24 @@
 package frontend.controller;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.LinkedList;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import frontend.model.Period;
+import frontend.jsonparse.EventParse;
+import frontend.jsonparse.FestivalParse;
+import frontend.jsonparse.PeopleParse;
+import frontend.jsonparse.PeriodParse;
+import frontend.jsonparse.PlaceParse;
+import frontend.model.Event;
+import frontend.model.Festival;
+import frontend.model.People;
+import frontend.model.Place;
+import frontend.model.Model;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Service;
@@ -27,21 +39,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ToolBar;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
-import jsonparse.DynastyParse;
-import jsonparse.EventParse;
-import jsonparse.FestivalParse;
-import jsonparse.HistoricalFigureParse;
-import jsonparse.HistoricalSiteParse;
-import model.Dynasty;
-import model.Event;
-import model.Festival;
-import model.HistoricalFigure;
-import model.HistoricalSite;
-import model.HistoryObject;
 
 public class ResultListController implements Initializable {
     @FXML
-    public ListView<HistoryObject> resultListView;
+    public ListView<Model> resultListView;
     @FXML
     public TextField smallSearch;
     @FXML
@@ -84,40 +85,24 @@ public class ResultListController implements Initializable {
     public Label address_lb;
     @FXML
     public Text story_tx;
-    public LinkedList<HistoryObject> resultList;
-    public LinkedList<Dynasty> dynastyList;
+    public LinkedList<Model> resultList;
+    public LinkedList<Period> dynastyList;
     public LinkedList<Event> eventList;
     public LinkedList<Festival> festivalList;
-    public LinkedList<HistoricalFigure> historicalFigureList;
-    public LinkedList<HistoricalSite> historicalSiteList;
-    private ObservableList<HistoryObject> historyObservableList;
+    public LinkedList<People> historicalFigureList;
+    public LinkedList<Place> historicalSiteList;
+    private ObservableList<Model> historyObservableList;
     final ServiceSearch serviceSearch;
-
+    
     public ResultListController()  {
-    	resultList = new LinkedList<HistoryObject>();
+    	resultList = new LinkedList<Model>();
     	serviceSearch = new ServiceSearch();
-    	dynastyList = DynastyParse.readFileJson();
+    	dynastyList = PeriodParse.readFileJson();
     	eventList = EventParse.readFileJson();
     	festivalList = FestivalParse.readFileJson();
-    	historicalFigureList = HistoricalFigureParse.readFileJson();
-    	historicalSiteList = HistoricalSiteParse.readFileJson();
+    	historicalFigureList = PeopleParse.readFileJson();
+    	historicalSiteList = PlaceParse.readFileJson();
         historyObservableList = FXCollections.observableArrayList();
-        
-        historyObservableList.addAll(
-                new Event("Le hoi dong", "http:s","events","1","story"),
-                new Event("Le hoi dong1", "http:s1","events1","11","story1"),
-                new Event("Le hoi dong3", "http:s1","events1","11","story1"),
-                new Event("Le hoi dong3", "http:s1","events1","11","story1"),
-                new Event("Le hoi dong3", "http:s1","events1","11","story1"),
-                new Event("Le hoi dong3", "http:s1","events1","11","story1"),
-                new Event("Le hoi dong3", "http:s1","events1","11","story1"),
-                new Event("Le hoi dong3", "http:s1","events1","11","story1"),
-                new Event("Le hoi dong3", "http:s1","events1","11","story1"),
-                new Event("Le hoi dong3", "http:s1","events1","11","story1"),
-                new Event("Le hoi dong3", "http:s1","events1","11","story1"),
-                new Event("Le hoi dong3", "http:s1","events1","11","story1"),
-                new Event("Le hoi dong4", "http:s1","events1","11","story1")
-        );
     }
 
     @Override
@@ -164,64 +149,64 @@ public class ResultListController implements Initializable {
     	
     }
 	
-    private LinkedList<HistoryObject> search(String keyword){
-    	LinkedList<HistoryObject> matchedList = new LinkedList<HistoryObject>();
+    private LinkedList<Model> search(String keyword){
+    	LinkedList<Model> matchedList = new LinkedList<Model>();
     	if(allCB.isSelected()) {
-    		for(HistoryObject i: dynastyList) {
+    		for(Model i: dynastyList) {
     			if(matched(keyword, i.getName())) {
     				matchedList.add(i);
     			}
     		};
-    		for(HistoryObject i: eventList) {
+    		for(Model i: eventList) {
     			if(matched(keyword, i.getName())) {
     				matchedList.add(i);
     			}
     		};
-    		for(HistoryObject i: festivalList) {
+    		for(Model i: festivalList) {
     			if(matched(keyword, i.getName())) {
     				matchedList.add(i);
     			}
     		};    		
-    		for(HistoryObject i: historicalFigureList) {
+    		for(Model i: historicalFigureList) {
     			if(matched(keyword, i.getName())) {
     				matchedList.add(i);
     			}
     		};
-    		for(HistoryObject i: historicalSiteList) {
+    		for(Model i: historicalSiteList) {
     			if(matched(keyword, i.getName())) {
     				matchedList.add(i);
     			}
     		};
     	}else {
         	if(dynastyCB.isSelected()) {
-        		for(HistoryObject i: dynastyList) {
+        		for(Model i: dynastyList) {
         			if(matched(keyword, i.getName())) {
         				matchedList.add(i);
         			}
         		}
         	}
         	if(eventCB.isSelected()) {
-        		for(HistoryObject i: eventList) {
+        		for(Model i: eventList) {
         			if(matched(keyword, i.getName())) {
         				matchedList.add(i);
         			}
         		};
         	}
         	if(festivalCB.isSelected()) {
-        		for(HistoryObject i: festivalList) {
+        		for(Model i: festivalList) {
         			if(matched(keyword, i.getName())) {
         				matchedList.add(i);
         			}
         		};    	
         	}
         	if(historicalFigureCB.isSelected()) {
-        		for(HistoryObject i: historicalFigureList) {
+        		for(Model i: historicalFigureList) {
         			if(matched(keyword, i.getName())) {
         				matchedList.add(i);
         			}
         		};
         	}if(historicalFigureCB.isSelected()) {
-        		for(HistoryObject i: historicalSiteList) {
+        		for(Model i: historicalSiteList) {
         			if(matched(keyword, i.getName())) {
         				matchedList.add(i);
         			}
@@ -241,12 +226,12 @@ public class ResultListController implements Initializable {
           return false;
         }
     }
-	public class ServiceSearch extends Service<LinkedList<HistoryObject>> {
+	public class ServiceSearch extends Service<LinkedList<Model>> {
 	    @Override
-	    protected Task<LinkedList<HistoryObject>> createTask() {
-	        return new Task<LinkedList<HistoryObject>>() {
+	    protected Task<LinkedList<Model>> createTask() {
+	        return new Task<LinkedList<Model>>() {
 	            @Override
-	            protected LinkedList<HistoryObject> call() throws Exception {
+	            protected LinkedList<Model> call() throws Exception {
 	                //DO YOU HARD STUFF HERE
 	            	String searchKeyword = fieldSearch.getText();
 	            	Thread.sleep(300);
@@ -256,7 +241,7 @@ public class ResultListController implements Initializable {
 	    }
 	}
 	
-	public class ResultItemCell extends ListCell<HistoryObject> {
+	public class ResultItemCell extends ListCell<Model> {
 
 	    @FXML
 	    public Label titleLb;
@@ -269,11 +254,13 @@ public class ResultListController implements Initializable {
 	    public String time;
 	    public String address;
 	    public String story;
+	    public Model model;
 	    FXMLLoader loader;
-	    
+	    public Model selectedItem;
 	    public ResultItemCell() {
 	        loadFXML();
 	        this.setOnMouseClicked(MouseEvent->{
+	        
 	        	contentScreen.setVisible(true);
 	        	contentScreen.setManaged(true);
 	        	searchScreen.setVisible(false);
@@ -281,16 +268,28 @@ public class ResultListController implements Initializable {
 	        	title_lb.setText(this.titleLb.getText());
 	        	source_lb.setText("Nguồn: " + this.urlLb.getText());
 	        	type_lb.setText("Thể loại: " + this.typeLb.getText());
-	        	if(time != null) {	        		
-	        		time_lb.setText("Thời gian: " + this.time);
-	        	}else {
-	        		time_lb.setText("");
+	        	if(selectedItem.getClass() == Event.class) {
+		        	if(time != null) {	        		
+		        		time_lb.setText("Thời gian: " + this.time);
+		        	}else {
+		        		time_lb.setText("");
+		        	}
+		        	if(address != null) {
+		        		address_lb.setText("Địa điểm: "+ this.address);
+		        	}else {
+		        		address_lb.setText("");
+		        	}
+	        	}else if(selectedItem.getClass() == Festival.class) {
+	        		
+	        	}else if(selectedItem.getClass() == People.class) {
+	        		
+	        	}else if(selectedItem.getClass() == Period.class) {
+	        		
+	        	}else if(selectedItem.getClass() == Place.class) {
+	        		
 	        	}
-	        	if(address != null) {
-	        		address_lb.setText("Địa điểm: "+ this.address);
-	        	}else {
-	        		address_lb.setText("");
-	        	}
+	        	
+
 	        	
 	        	story_tx.setText(this.story);
 	        });
@@ -299,7 +298,7 @@ public class ResultListController implements Initializable {
 	    
 	    private void loadFXML() {
 	        try {
-	            FXMLLoader loader = new FXMLLoader(getClass().getResource("/frontend/model/resultItem.fxml"));
+	            FXMLLoader loader = new FXMLLoader(getClass().getResource("/frontend/fxml/resultItem.fxml"));
 	            loader.setController(this);
 	            loader.setRoot(this);
 	            loader.load();
@@ -309,24 +308,24 @@ public class ResultListController implements Initializable {
 	        }
 	    }
 		@Override
-	    protected void updateItem(HistoryObject item, boolean empty) {
+	    protected void updateItem(Model item, boolean empty) {
 	        super.updateItem(item, empty);
-
+	        model = item;
 	        if(empty || item == null) {
 	            setText(null);
 	            setContentDisplay(ContentDisplay.TEXT_ONLY);
 	        }
 	        else {
+	        	this.selectedItem = item;
 	        	this.story = item.getStory();
 	            titleLb.setText(item.getName());
-	            String type = item.getType();
-	            if(type.equalsIgnoreCase("dynasty")) {
+	            if(item.getClass() ==  Period.class) {
 	            	typeLb.setText("Triểu đại");
-	            }else if(type.equalsIgnoreCase("event")) {
+	            }else if(item.getClass() == Event.class) {
 	            	typeLb.setText("Sự kiện lịch sử");
-	            }else if(type.equalsIgnoreCase("festival")) {
+	            }else if(item.getClass() == Festival.class) {
 	            	typeLb.setText("Lễ hội văn hóa Việt Nam");
-	            }else if(type.equalsIgnoreCase("historicalFigure")) {
+	            }else if(item.getClass() == People.class) {
 	            	typeLb.setText("Nhân vật lịch sử");
 	            }else {
 	            	typeLb.setText("Địa điểm di tích lịch sử");

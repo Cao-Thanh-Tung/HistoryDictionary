@@ -29,7 +29,7 @@ public class Person extends Model{
     private List<Person> personList = new ArrayList<Person>();
 
     public static void getpersonList() throws IOException{
-        String file = "src/main/resources/json/people.json";
+        String file = "src/main/resources/storage/historicalFigures.json";
         String jsonString = new String(Files.readAllBytes(Paths.get(file)));
         JSONObject obj = new JSONObject(jsonString);
         JSONArray arr = obj.getJSONArray("people"); // notice that `"posts": [...]`

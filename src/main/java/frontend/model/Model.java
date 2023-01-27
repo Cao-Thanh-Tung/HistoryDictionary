@@ -1,11 +1,10 @@
-package model;
+package frontend.model;
 
 import java.util.List;
 
-public abstract class HistoryObject {
+public abstract class Model {
 	protected String name;
 	protected String source;
-	protected String type;
 	protected String story;
 	protected List<String> events; // cac su kien lien quan
 	protected List<String> historicalSites;	// cac dia diem di tich lich su lien quan
@@ -17,9 +16,6 @@ public abstract class HistoryObject {
 	};
 	public String getSource() {
 		return this.source;
-	}
-	public String getType() {
-		return this.type;
 	}
 	public String getStory() {
 		return this.story;

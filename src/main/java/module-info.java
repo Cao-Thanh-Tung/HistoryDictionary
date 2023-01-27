@@ -1,25 +1,19 @@
-/**
- * 
- */
-/**
- * @author caoth
- *
- */
 module HistoryDictionary {
+	exports backend.src.hust;
 	exports frontend.view;
+	exports frontend.jsonparse;
+	exports backend.src.hust.model;
 	exports backend;
 	exports frontend.controller;
-	exports jsonparse;
-	exports model;
+	exports frontend.model;
 
 	requires javafx.base;
 	requires javafx.controls;
 	requires javafx.fxml;
 	requires javafx.graphics;
 	requires json.simple;
-	requires jackson.databind;
-	requires java.desktop;
-	requires org.jsoup;
-	requires jackson.core;
 	requires org.json;
+	requires org.jsoup;
+	requires com.fasterxml.jackson.databind;
+	requires com.fasterxml.jackson.core;
 }

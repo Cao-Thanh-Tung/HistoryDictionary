@@ -1,4 +1,4 @@
-package jsonparse;
+package frontend.jsonparse;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -10,7 +10,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import model.Festival;
+import frontend.model.Festival;
 
 public class FestivalParse {
 	private static LinkedList<Festival> FestivalObjectList = new LinkedList<Festival>();
@@ -19,7 +19,7 @@ public class FestivalParse {
 		FestivalObjectList.clear();;
 		JSONParser jsonParser = new JSONParser();
 		try {
-			FileReader reader = new FileReader("src\\main\\resources\\storage\\festivals.json");
+			FileReader reader = new FileReader("src\\main\\resources\\storage\\festival.json");
 			Object obj = jsonParser.parse(reader);
 			JSONArray FestivalList = (JSONArray) obj;
 			FestivalList.forEach(Festival -> parseFestivalObject((JSONObject) Festival));
@@ -41,6 +41,6 @@ public class FestivalParse {
 		String time = (String) Festival.get("time");
 		String story = (String) Festival.get("story");
 		String address = (String) Festival.get("address");
-		FestivalObjectList.add(new Festival(name, source, "Festival", time, address, story));
+		FestivalObjectList.add(new Festival(name, source, time, address, story));
 	}
 }

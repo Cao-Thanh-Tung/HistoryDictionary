@@ -16,7 +16,7 @@ public class MainScreen extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// TODO Auto-generated method stub
-		Parent root = FXMLLoader.load(getClass().getResource("/frontend/model/mainScreen.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/frontend/fxml/mainScreen.fxml"));
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("/frontend/style/searchbar.css").toExternalForm());
 		scene.getStylesheets().add(getClass().getResource("/frontend/style/resultItem.css").toExternalForm());

@@ -1,4 +1,4 @@
-package jsonparse;
+package frontend.jsonparse;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -10,16 +10,16 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import model.HistoricalSite;
+import frontend.model.Place;
 
-public class HistoricalSiteParse {
-	private static LinkedList<HistoricalSite> HistoricalSiteObjectList = new LinkedList<HistoricalSite>();
-	public static LinkedList<HistoricalSite> readFileJson()
+public class PlaceParse {
+	private static LinkedList<Place> HistoricalSiteObjectList = new LinkedList<Place>();
+	public static LinkedList<Place> readFileJson()
 	{
 		HistoricalSiteObjectList.clear();;
 		JSONParser jsonParser = new JSONParser();
 		try {
-			FileReader reader = new FileReader("src\\main\\resources\\storage\\historicalSites.json");
+			FileReader reader = new FileReader("src\\main\\resources\\storage\\place.json");
 			Object obj = jsonParser.parse(reader);
 			JSONArray HistoricalSiteList = (JSONArray) obj;
 			HistoricalSiteList.forEach(HistoricalSite -> parseHistoricalSiteObject((JSONObject) HistoricalSite));
@@ -40,6 +40,6 @@ public class HistoricalSiteParse {
 		String source = (String) HistoricalSite.get("source");
 		String address = (String) HistoricalSite.get("address");
 		String story = (String) HistoricalSite.get("story");
-		HistoricalSiteObjectList.add(new HistoricalSite(name, source, "HistoricalSite", address, story));
+		HistoricalSiteObjectList.add(new Place(name, source, address, story));
 	}
 }

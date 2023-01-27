@@ -1,10 +1,9 @@
-package model;
+package frontend.model;
 
-public class HistoricalSite extends HistoryObject{
-	public HistoricalSite(String name, String source, String type, String address, String story) {
+public class Place extends Model{
+	public Place(String name, String source, String address, String story) {
 		this.name = name;
 		this.source = source;
-		this.type = type;
 		this.address = address;
 		this.story = story;
 	}
