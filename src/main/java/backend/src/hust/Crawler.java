@@ -28,9 +28,9 @@ public class Crawler {
     public static final String TIMELINE_HREF = "/dong-lich-su";
 
     public static void main(String[] args) throws IOException {
-        writer.writeValue(new File("src/main/resources/storage/historicalFigures.json"), new ArrayList<Person>());
-        writer.writeValue(new File("src/main/resources/storage/historicalSites.json"), new ArrayList<Place>());
-        writer.writeValue(new File("src/main/resources/storage/dynasty.json"), new ArrayList<Period>());
+        writer.writeValue(new File("src/main/resources/storage/people.json"), new ArrayList<Person>());
+        writer.writeValue(new File("src/main/resources/storage/place.json"), new ArrayList<Place>());
+        writer.writeValue(new File("src/main/resources/storage/period.json"), new ArrayList<Period>());
         // Tạo document từ url dòng lịch sử
         Document document = Jsoup.connect(URI + TIMELINE_HREF).get();
         Element mainContext = document.getElementById("Mod88");
@@ -61,10 +61,10 @@ public class Crawler {
                         + "\tTên thật: " + person.getRealName() + "\n");
 
             }
-            List<Person> listPerson = Arrays.asList(reader.readValue(new File("src/main/resources/storage/historicalFigures.json"), Person[].class));
+            List<Person> listPerson = Arrays.asList(reader.readValue(new File("src/main/resources/storage/people.json"), Person[].class));
             List<Person> people = new ArrayList<>(listPerson);
             people.addAll(period.getPeople());
-            writer.writeValue(new File("src/main/resources/storage/historicalFigures.json"), people);
+            writer.writeValue(new File("src/main/resources/storage/people.json"), people);
             for (Place place:period.getPlaces()) {
                 System.out.println(place.getHref());
                 System.out.println(place.getName());
@@ -74,15 +74,15 @@ public class Crawler {
                         + "\tTọa độ: " + place.getCoordinates() + "\n"
                         + "\tDiện tích: " + place.getArea() + "\n");
             }
-            List<Place> listPlace = Arrays.asList(reader.readValue(new File("src/main/resources/storage/historicalSites.json"), Place[].class));
+            List<Place> listPlace = Arrays.asList(reader.readValue(new File("src/main/resources/storage/place.json"), Place[].class));
             List<Place> places = new ArrayList<>(listPlace);
             places.addAll(period.getPlaces());
-            writer.writeValue(new File("src/main/resources/storage/historicalSites.json"), places);
+            writer.writeValue(new File("src/main/resources/storage/place.json"), places);
             System.out.println("");
             periods.add(period);
         	
 
         }
-        writer.writeValue(new File("src/main/resources/storage/dynasty.json"), periods);
+        writer.writeValue(new File("src/main/resources/storage/period.json"), periods);
     }
 }

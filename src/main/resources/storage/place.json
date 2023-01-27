@@ -1,1 +1,337 @@
-[ ]
+[ {
+  "href" : "/dia-danh/tinh-bac-ninh",
+  "name" : "tỉnh Bắc Ninh",
+  "national" : "Việt Nam",
+  "location" : null,
+  "coordinates" : null,
+  "area" : "822,7 km²1"
+}, {
+  "href" : "/dia-danh/song-hong",
+  "name" : "sông Hồng",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/song-cuu-long",
+  "name" : "sông Cửu Long",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/song-duong-tu",
+  "name" : "sông Dương Tử",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/song-ma",
+  "name" : "sông Mã",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/tinh-quang-dong",
+  "name" : "tỉnh Quảng Đông",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/quan-nam-hai",
+  "name" : "quận Nam Hải",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/bo-giao-chi",
+  "name" : "bộ Giao Chỉ",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/tinh-thanh-hoa",
+  "name" : "tỉnh Thanh Hóa",
+  "national" : "Việt Nam",
+  "location" : null,
+  "coordinates" : null,
+  "area" : "11.130,2 km²"
+}, {
+  "href" : "/dia-danh/huyen-quang-ninh",
+  "name" : "huyện Quảng Ninh",
+  "national" : "Việt Nam",
+  "location" : null,
+  "coordinates" : null,
+  "area" : "1190,89 km2"
+}, {
+  "href" : "/dia-danh/tinh-quang-binh",
+  "name" : "tỉnh Quảng Bình",
+  "national" : "Việt Nam",
+  "location" : null,
+  "coordinates" : null,
+  "area" : "8.065,3 km²"
+}, {
+  "href" : "/dia-danh/tinh-quang-tri",
+  "name" : "tỉnh Quảng Trị",
+  "national" : "Việt Nam",
+  "location" : null,
+  "coordinates" : null,
+  "area" : "4.739,8 km²"
+}, {
+  "href" : "/dia-danh/tinh-quang-nam",
+  "name" : "tỉnh Quảng Nam",
+  "national" : "Việt Nam",
+  "location" : null,
+  "coordinates" : null,
+  "area" : "10.438,4 km²"
+}, {
+  "href" : "/dia-danh/tran-thuan-thanh",
+  "name" : "trấn Thuận Thành",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/huyen-phuoc-long",
+  "name" : "huyện Phước Long",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/tran-bien",
+  "name" : "Trấn Biên",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/chau-doc",
+  "name" : "Châu Đốc",
+  "national" : "Việt Nam",
+  "location" : null,
+  "coordinates" : null,
+  "area" : "105,29 km²"
+}, {
+  "href" : "/dia-danh/bien-dong",
+  "name" : "biển Đông",
+  "national" : null,
+  "location" : null,
+  "coordinates" : "13°B 113°Đ / 13°B 113°Đ",
+  "area" : null
+}, {
+  "href" : "/dia-danh/tinh-ha-tien",
+  "name" : "tỉnh Hà Tiên",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/song-me-kong",
+  "name" : "sông Mê Kông",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/song-serepok",
+  "name" : "sông Sêrêpôk",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/tinh-stung-treng",
+  "name" : "tỉnh Stung Treng",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/song-bac-luan",
+  "name" : "sông Bắc Luân",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/dien-bien",
+  "name" : "Điện Biên",
+  "national" : "Việt Nam",
+  "location" : null,
+  "coordinates" : null,
+  "area" : "9.541,2 km²1"
+}, {
+  "href" : "/dia-danh/tinh-van-nam",
+  "name" : "tỉnh Vân Nam",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/tinh-ha-giang",
+  "name" : "tỉnh Hà Giang",
+  "national" : "Việt Nam",
+  "location" : null,
+  "coordinates" : null,
+  "area" : "7.914,9 km²"
+}, {
+  "href" : "/dia-danh/duong-ha",
+  "name" : "Dương Hà",
+  "national" : "Việt Nam",
+  "location" : null,
+  "coordinates" : null,
+  "area" : "2,65 km²1"
+}, {
+  "href" : "/dia-danh/song-da",
+  "name" : "sông Đà",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/chau-hong-ha",
+  "name" : "châu Hồng Hà",
+  "national" : "Trung Quốc",
+  "location" : null,
+  "coordinates" : null,
+  "area" : ""
+}, {
+  "href" : "/dia-danh/tinh-hung-hoa",
+  "name" : "tỉnh Hưng Hóa",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/tran-ninh",
+  "name" : "Trấn Ninh",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/tran-tay-thanh",
+  "name" : "Trấn Tây Thành",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/huyen-thuan-chau",
+  "name" : "huyện Thuận Châu",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : "1.535,07"
+}, {
+  "href" : "/dia-danh/nuoc-viet",
+  "name" : "nước Việt",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/thanh-nam-dinh",
+  "name" : "thành Nam Định",
+  "national" : "Việt Nam",
+  "location" : null,
+  "coordinates" : null,
+  "area" : "46,4 km²"
+}, {
+  "href" : "/dia-danh/chau-ai",
+  "name" : "châu Ái",
+  "national" : "Việt Nam",
+  "location" : null,
+  "coordinates" : null,
+  "area" : "11.130,2 km²"
+}, {
+  "href" : "/dia-danh/chau-vu-ninh",
+  "name" : "châu Vũ Ninh",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/xu-son-nam",
+  "name" : "xứ Sơn Nam",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/xu-nghe-an",
+  "name" : "xứ Nghệ An",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/thanh-son-tay",
+  "name" : "thành Sơn Tây",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/thanh-hai-duong",
+  "name" : "thành Hải Dương",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/tinh-ninh-binh",
+  "name" : "tỉnh Ninh Bình",
+  "national" : "Việt Nam",
+  "location" : null,
+  "coordinates" : null,
+  "area" : "1.378,1 km²"
+}, {
+  "href" : "/dia-danh/thanh-gia-dinh",
+  "name" : "thành Gia Định",
+  "national" : null,
+  "location" : null,
+  "coordinates" : "10.785207,106.702825",
+  "area" : null
+}, {
+  "href" : "/dia-danh/tinh-gia-dinh",
+  "name" : "tỉnh Gia Định",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/tinh-bien-hoa",
+  "name" : "tỉnh Biên Hòa",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/tinh-dinh-tuong",
+  "name" : "tỉnh Định Tường",
+  "national" : null,
+  "location" : null,
+  "coordinates" : null,
+  "area" : null
+}, {
+  "href" : "/dia-danh/tinh-vinh-long",
+  "name" : "tỉnh Vĩnh Long",
+  "national" : "Việt Nam",
+  "location" : null,
+  "coordinates" : null,
+  "area" : "1.475 km²"
+}, {
+  "href" : "/dia-danh/tinh-an-giang",
+  "name" : "tỉnh An Giang",
+  "national" : "Việt Nam",
+  "location" : null,
+  "coordinates" : null,
+  "area" : "3.536,7 km²1"
+} ]

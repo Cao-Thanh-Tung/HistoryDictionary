@@ -1,1 +1,23 @@
-[ ]
+[ {
+  "href" : "",
+  "name" : "Dương Vương",
+  "period" : "",
+  "birth" : null,
+  "death" : null,
+  "reignTime" : null,
+  "predecessor" : null,
+  "successor" : null,
+  "aliases" : null,
+  "realName" : null
+}, {
+  "href" : "",
+  "name" : "Dương Vương",
+  "period" : "",
+  "birth" : null,
+  "death" : null,
+  "reignTime" : null,
+  "predecessor" : null,
+  "successor" : null,
+  "aliases" : null,
+  "realName" : null
+} ]
