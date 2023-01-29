@@ -110,51 +110,8 @@ public class Period extends Model{
                 } catch (Exception e) {
                     System.out.println("Không tìm thấy thông tin nhân vật, địa danh nào. " + e);
                 }
-//                // Lấy danh sách nhân vật liên quan đến thời kỳ lịch sử
-//                try {
-//                    Element listRefCharacters = subDoc.getElementById("list-ref-characters");
-//                    Elements characters = listRefCharacters.getElementsByTag("a");
-//                    for (Element character : characters) {
-//                        // Bỏ qua trường hợp là các triều đại
-//                        if (character.attr("href").contains("/nha-")) continue;
-//                        boolean isExisted = false;
-//                        // Tạo đối tượng nhân vật dựa trên tên và đường dẫn đến thông tin nhân vật
-//                        Celebrity person = new Person(character.text(), character.attr("href"));
-//                        // Nếu nhân vật đã được tạo thì bỏ qua
-//                        for (Person p : this.getPeople()) {
-//                            if (p.getHref().equals(person.getHref())) {
-//                                isExisted = true;
-//                                break;
-//                            }
-//                        }
-//                        if (!isExisted) this.addPeople(person);
-//                    }
-//                } catch (Exception e) {
-//                    System.out.println("Không tìm thấy thông tin nhân vật nào. " + e);
-////                    throw new RuntimeException(e);
-//                }
-//
-//                // Lấy danh sách địa danh liên quan đến thời kỳ lịch sử
-//                try {
-//                    Element listRefPlaces = subDoc.getElementById("list-ref-places");
-//                    Elements places = listRefPlaces.getElementsByTag("a");
-//                    for (Element place : places) {
-//                        boolean isExisted = false;
-//                        // Tạo đối tượng địa danh dựa trên tên và đường dẫn đến thông tin địa danh
-//                        Place place1 = new Place(place.text(), place.attr("href"));
-//                        // Nếu địa danh đã được tạo thì bỏ qua
-//                        for (Place place2 : this.getPlaces()) {
-//                            if (place2.getHref().equals(place1.getHref())) {
-//                                isExisted = true;
-//                                break;
-//                            }
-//                        }
-//                        if (!isExisted) this.addPlaces(place1);
-//                    }
-//                } catch (Exception e) {
-//                    System.out.println("Không tìm thấy thông tin địa danh nào. " + e);
-////                    throw new RuntimeException(e);
-//                }
+                    }
+
             }
         }
     }
