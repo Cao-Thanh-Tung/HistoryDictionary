@@ -71,10 +71,6 @@ public class Place extends Model{
             System.out.println("Không có thông tin địa danh "+ this.getName() + ". " + e);
         }
         this.setNational(infoKV.get("Quốc gia"));
-//        if (!infoKV.get("Vị trí").isEmpty()) this.setLocation(infoKV.get("Vị trí"));
-//        if (!infoKV.get("Địa điểm").isEmpty()) this.setLocation(infoKV.get("Địa điểm"));
-//        if (!infoKV.get("Khu vực").isEmpty()) this.setLocation(infoKV.get("Khu vực"));
-//        if (!infoKV.get("Địa chỉ").isEmpty()) this.setLocation(infoKV.get("Địa chỉ"));
         this.setCoordinates(infoKV.get("Tọa độ"));
         this.setArea(infoKV.get("Diện tích"));
     }
