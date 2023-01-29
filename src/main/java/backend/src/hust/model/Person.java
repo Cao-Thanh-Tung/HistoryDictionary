@@ -127,6 +127,7 @@ public class Person extends Model{
         } catch (Exception e) {
             System.out.println("Không có thông tin nhân vật "+ this.getName() + ". " + e);
         }
+        
         this.setBirth(infoKV.get("Sinh"));
         this.setDeath(infoKV.get("Mất"));
         this.setAliases(infoKV.get("Niên hiệu"));
