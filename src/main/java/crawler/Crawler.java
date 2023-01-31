@@ -1,4 +1,4 @@
-package backend.src.hust;
+package crawler;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,9 +16,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
-import backend.src.hust.model.Period;
-import backend.src.hust.model.Person;
-import backend.src.hust.model.Place;
+import model.Period;
+import model.Person;
+import model.Place;
 
 public class Crawler {
     public static final ObjectMapper mapper = new ObjectMapper();
@@ -28,7 +28,7 @@ public class Crawler {
     public static final String TIMELINE_HREF = "/dong-lich-su";
 
     public static void main(String[] args) throws IOException {
-        writer.writeValue(new File("src/main/resources/storage/people.json"), new ArrayList<Person>());
+        writer.writeValue(new File("src/main/resources/storage/person.json"), new ArrayList<Person>());
         writer.writeValue(new File("src/main/resources/storage/place.json"), new ArrayList<Place>());
         writer.writeValue(new File("src/main/resources/storage/period.json"), new ArrayList<Period>());
         // Tạo document từ url dòng lịch sử
@@ -61,10 +61,10 @@ public class Crawler {
                         + "\tTên thật: " + person.getRealName() + "\n");
 
             }
-            List<Person> listPerson = Arrays.asList(reader.readValue(new File("src/main/resources/storage/people.json"), Person[].class));
+            List<Person> listPerson = Arrays.asList(reader.readValue(new File("src/main/resources/storage/person.json"), Person[].class));
             List<Person> people = new ArrayList<>(listPerson);
             people.addAll(period.getPeople());
-            writer.writeValue(new File("src/main/resources/storage/people.json"), people);
+            writer.writeValue(new File("src/main/resources/storage/person.json"), people);
             for (Place place:period.getPlaces()) {
                 System.out.println(place.getHref());
                 System.out.println(place.getName());

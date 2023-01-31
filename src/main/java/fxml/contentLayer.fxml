@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.effect.*?>
+<?import org.controlsfx.control.textfield.CustomTextField?>
+<?import org.controlsfx.glyphfont.Glyph?>
+<?import javafx.scene.text.*?>
+<BorderPane prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+               <top>
+               		<ToolBar id="searchbarSmall" prefHeight="45" maxWidth="250" BorderPane.alignment="TOP_LEFT">
+         				<items>
+         					<CustomTextField fx:id="tf_searchBarSmall"
+							styleClass="searchField" prefHeight="20.0" maxWidth="200.0" text="Hung Vuong" editable="false" focusTraversable="false">
+								<left>
+									<Label styleClass="searchBoxLabel">
+										<graphic>
+											<Glyph fontFamily="FontAwesome" icon="SEARCH"/>	
+											<padding>
+                  								<Insets left="12.0" right="12.0" />
+               								</padding>
+										</graphic>
+									</Label>
+								</left>
+							</CustomTextField>
+						</items>
+      				</ToolBar>
+               </top>
+               <center>
+            		<ScrollPane prefHeight="700.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+               			<content>
+                  			<BorderPane prefHeight="700.0" prefWidth="750.0">
+                     			<center>
+                        			<VBox fx:id="vb_contentWrapper" prefHeight="700.0" prefWidth="750.0" BorderPane.alignment="CENTER">
+                           				<children>
+                           					<Label id="title_lb" fx:id="title_lb" text="Tiêu đề"/>
+                           					<Label fx:id="source_lb" text="Nguồn: "/>
+                              				<Label fx:id="type_lb" text="Thể loại: "/>
+                           					<Label fx:id="time_lb" text="Thời gian: "/>
+                           					<Label fx:id="address_lb" text="Địa điểm: "/>
+                           					<Label fx:id="story_lb" text="Các thông tin bổ sung: "/>
+                              				<TextFlow prefWidth="550.0" maxWidth="750">
+                                 				<children>
+                                    				<Text fx:id="story_tx" strokeType="OUTSIDE" strokeWidth="0.0" text="content" />
+                                 				</children>
+                              				</TextFlow>
+                           				</children>
+                        			</VBox>
+                     			</center>
+                  			</BorderPane>
+               			</content>
+            		</ScrollPane>
+         		</center>
+               <padding>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </BorderPane>

@@ -1,19 +1,23 @@
-package backend.src.hust.model;
+package model;
 
-import backend.src.hust.Crawler;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import crawler.Crawler;
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Person extends Model{
@@ -28,17 +32,6 @@ public class Person extends Model{
 
     private List<Person> personList = new ArrayList<Person>();
 
-    public static void getpersonList() throws IOException{
-        String file = "src/main/resources/storage/historicalFigures.json";
-        String jsonString = new String(Files.readAllBytes(Paths.get(file)));
-        JSONObject obj = new JSONObject(jsonString);
-        JSONArray arr = obj.getJSONArray("people"); // notice that `"posts": [...]`
-        for (int i = 0; i < arr.length(); i++)
-        {
-            String href = arr.getJSONObject(i).getString("href");
-            System.out.println(href);
-        }
-    }
     public Person() {
     }
 
@@ -135,6 +128,36 @@ public class Person extends Model{
         this.setReignTime(infoKV.get("Trị vì"));
         this.setRealName(infoKV.get("Tên thật"));
     }
+    
+	public static LinkedList<Person> readFileJson()
+	{
+		LinkedList<Person>personObjectList = new LinkedList<Person>();
+		JSONParser jsonParser = new JSONParser();
+		try {
+			FileReader reader = new FileReader("src\\main\\resources\\storage\\person.json");
+			Object obj = jsonParser.parse(reader);
+			JSONArray personList = (JSONArray) obj;
+			for(Object person:personList) {
+				personObjectList.add(parsePersonObject((JSONObject) person));
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return personObjectList;
+	}
+	private static Person parsePersonObject(JSONObject person) {
+		String name = (String) person.get("name");
+		String href = (String) person.get("href");
+		String period = (String) person.get("period");
+		return new Person(name, href, period);
+	}
 }
     
     

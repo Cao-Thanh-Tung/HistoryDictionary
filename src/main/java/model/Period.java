@@ -1,14 +1,21 @@
-package backend.src.hust.model;
+package model;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import backend.src.hust.Crawler;
+import crawler.Crawler;
 
 
 public class Period extends Model{
@@ -114,11 +121,41 @@ public class Period extends Model{
 
             }
         }
-    }
+    
 
     public String toJson() {
 
         return null;
     }
+    
+	public static LinkedList<Period> readFileJson()
+	{
+		LinkedList<Period> periodObjectList = new LinkedList<Period>();
+		JSONParser jsonParser = new JSONParser();
+		try {
+			FileReader reader = new FileReader("src\\main\\resources\\storage\\period.json");
+			Object obj = jsonParser.parse(reader);
+			JSONArray periodList = (JSONArray) obj;
+			for(Object period: periodList) {
+				periodObjectList.add(parsePeriodObject((JSONObject)period));
+			}
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return periodObjectList;
+	}
+	private static Period parsePeriodObject(JSONObject period) {
+		String name = (String) period.get("name");
+		String href = (String) period.get("href");
+
+		return new Period(name, href);
+	}
 }
 

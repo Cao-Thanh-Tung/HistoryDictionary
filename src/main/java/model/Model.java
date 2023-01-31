@@ -1,4 +1,4 @@
-package backend.src.hust.model;
+package model;
 
 public abstract class Model {
     private String href;
