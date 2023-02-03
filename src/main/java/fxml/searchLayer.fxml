@@ -8,67 +8,14 @@
 <?import org.controlsfx.control.textfield.CustomTextField?>
 <?import org.controlsfx.glyphfont.Glyph?>
 <?import javafx.scene.text.*?>
-
-<VBox prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontend.controller.ResultListController">
-   <children>
-          <BorderPane fx:id="contentScreen" prefHeight="700.0" prefWidth="800.0">
-               <top>
-               		<ToolBar id="searchbarSmall" prefHeight="45" maxWidth="250" BorderPane.alignment="TOP_LEFT">
-         				<items>
-         					<CustomTextField fx:id="smallSearch"
-							styleClass="searchField" prefHeight="20.0" maxWidth="200.0" text="Hung Vuong" editable="false" focusTraversable="false">
-								<left>
-									<Label styleClass="searchBoxLabel">
-										<graphic>
-											<Glyph fontFamily="FontAwesome" icon="SEARCH"/>	
-											<padding>
-                  								<Insets left="12.0" right="12.0" />
-               								</padding>
-										</graphic>
-									</Label>
-								</left>
-							</CustomTextField>
-						</items>
-      				</ToolBar>
-               </top>
-               <center>
-            		<ScrollPane prefHeight="700.0" prefWidth="800.0" BorderPane.alignment="CENTER">
-               			<content>
-                  			<BorderPane prefHeight="700.0" prefWidth="750.0">
-                     			<center>
-                        			<VBox prefHeight="700.0" prefWidth="750.0" BorderPane.alignment="CENTER">
-                           				<children>
-                           					<Label id="title_lb" fx:id="title_lb" text="Tiêu đề"/>
-                           					<Label fx:id="source_lb" text="Nguồn: "/>
-                              				<Label fx:id="type_lb" text="Thể loại: "/>
-                           					<Label fx:id="time_lb" text="Thời gian: "/>
-                           					<Label fx:id="address_lb" text="Địa điểm: "/>
-                           					<Label fx:id="story_lb" text="Các thông tin bổ sung: "/>
-                              				<TextFlow prefWidth="550.0" maxWidth="750">
-                                 				<children>
-                                    				<Text fx:id="story_tx" strokeType="OUTSIDE" strokeWidth="0.0" text="content" />
-                                 				</children>
-                              				</TextFlow>
-                           				</children>
-                        			</VBox>
-                     			</center>
-                  			</BorderPane>
-               			</content>
-            		</ScrollPane>
-         		</center>
-               <padding>
-                  <Insets left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </BorderPane>
-      
-	  <BorderPane fx:id="searchScreen" prefHeight="700.0" prefWidth="800.0">
+<BorderPane id="searchScreen" prefHeight="700.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    		<center>
       		<VBox alignment="CENTER" prefHeight="700.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          		<children>
 
       						<ToolBar id="searchbar" fx:id="searchComponent" maxWidth="700"  maxHeight="51.0" prefWidth="700"  prefHeight="51.0" BorderPane.alignment="CENTER">
          						<items>
-         							<CustomTextField fx:id="fieldSearch" onAction="#changeValue"
+         							<CustomTextField fx:id="tf_search" onAction="#search"
 									styleClass="searchField" prefHeight="37.0" prefWidth="410.0" >
 										<left>
 											<Label styleClass="searchBoxLabel">
@@ -88,7 +35,7 @@
                							<items>
                   							<MenuItem styleClass="itemType" mnemonicParsing="false">
                      							<graphic>
-                        							<CheckBox fx:id="dynastyCB" prefHeight="37.0" prefWidth="208.0" mnemonicParsing="false" text="Triều đại lịch sử">
+                        							<CheckBox fx:id="cb_period" prefHeight="37.0" prefWidth="208.0" mnemonicParsing="false" text="Triều đại lịch sử">
                            								<padding>
                               								<Insets left="8.0" />
                            								</padding>
@@ -98,7 +45,7 @@
                   							<SeparatorMenuItem mnemonicParsing="false" />
                   							<MenuItem styleClass="itemType" mnemonicParsing="false" style="-fx-background-radius: 12;">
                      							<graphic>
-                        							<CheckBox fx:id="eventCB" prefHeight="37.0" prefWidth="208.0" mnemonicParsing="false" text="Nhân vật lịch sử">
+                        							<CheckBox fx:id="cb_people" prefHeight="37.0" prefWidth="208.0" mnemonicParsing="false" text="Nhân vật lịch sử">
                            								<padding>
                               								<Insets left="8.0" />
                            								</padding>
@@ -108,7 +55,7 @@
                   							<SeparatorMenuItem mnemonicParsing="false" />
                   							<MenuItem styleClass="itemType" mnemonicParsing="false" style="-fx-background-radius: 12;">
                      							<graphic>
-                        							<CheckBox fx:id="festivalCB" prefHeight="37.0" prefWidth="208.0" mnemonicParsing="false" text="Sự kiện lịch sử">
+                        							<CheckBox fx:id="cb_event" prefHeight="37.0" prefWidth="208.0" mnemonicParsing="false" text="Sự kiện lịch sử">
                            								<padding>
                               								<Insets left="8.0" />
                            								</padding>
@@ -118,7 +65,7 @@
                   							<SeparatorMenuItem mnemonicParsing="false" />
                   							<MenuItem styleClass="itemType" mnemonicParsing="false" style="-fx-background-radius: 12;">
                      							<graphic>
-                        							<CheckBox fx:id="historicalFigureCB" prefHeight="37.0" prefWidth="208.0" mnemonicParsing="false" text="Địa điểm di tích lịch sử">
+                        							<CheckBox fx:id="cb_place" prefHeight="37.0" prefWidth="208.0" mnemonicParsing="false" text="Địa điểm di tích lịch sử">
                            								<padding>
                               								<Insets left="8.0" />
                            							</padding>
@@ -128,7 +75,7 @@
                   							<SeparatorMenuItem mnemonicParsing="false" />
                   							<MenuItem styleClass="itemType" mnemonicParsing="false" style="-fx-background-radius: 12;">
                      							<graphic>
-                        							<CheckBox fx:id="historicalSiteCB" prefHeight="37.0" prefWidth="208.0" mnemonicParsing="false" text="Lễ hội văn hóa Việt Nam">
+                        							<CheckBox fx:id="cb_festival" prefHeight="37.0" prefWidth="208.0" mnemonicParsing="false" text="Lễ hội văn hóa Việt Nam">
                            								<padding>
                               								<Insets left="8.0" />
                            								</padding>
@@ -138,7 +85,7 @@
                   							<SeparatorMenuItem mnemonicParsing="false" />
                   							<MenuItem styleClass="itemType" mnemonicParsing="false" style="-fx-background-radius: 12;">
                      							<graphic>
-                        							<CheckBox fx:id="allCB" prefHeight="37.0" prefWidth="208" mnemonicParsing="false" text="Tất cả" selected="true">
+                        							<CheckBox fx:id="cb_all" prefHeight="37.0" prefWidth="208" mnemonicParsing="false" text="Tất cả" selected="true">
                           	 							<padding>
                               								<Insets left="8.0" />
                            								</padding>
@@ -153,14 +100,9 @@
          						</padding>
       						</ToolBar>
 
-				<BorderPane fx:id="progressComponent" style="-fx-background-color:white;" maxHeight="-Infinity" maxWidth="700" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0">
+				<BorderPane fx:id="bp_resultList" style="-fx-background-color:white;" maxHeight="-Infinity" maxWidth="700" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0">
    					<center>
          				<ProgressIndicator fx:id="progressIndicator"/>
-   					</center>
-				</BorderPane>
-            	<BorderPane fx:id="lvresult" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" >
-   					<center>
-      					<ListView fx:id="resultListView" prefHeight="200.0" prefWidth="200.0"/>
    					</center>
 				</BorderPane>
          	</children>
@@ -170,5 +112,3 @@
       	<Insets />
    	 </opaqueInsets>
 	 </BorderPane>
-   </children>
-</VBox>

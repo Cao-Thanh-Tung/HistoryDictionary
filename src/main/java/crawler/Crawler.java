@@ -1,4 +1,4 @@
-package backend.src.hust;
+package crawler;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,9 +16,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
-import backend.src.hust.model.Period;
-import backend.src.hust.model.Person;
-import backend.src.hust.model.Place;
+import model.Period;
+import model.Person;
+import model.Place;
 
 public class Crawler {
     public static final ObjectMapper mapper = new ObjectMapper();
@@ -28,57 +28,43 @@ public class Crawler {
     public static final String TIMELINE_HREF = "/dong-lich-su";
 
     public static void main(String[] args) throws IOException {
-        writer.writeValue(new File("src/main/resources/storage/people.json"), new ArrayList<Person>());
+        writer.writeValue(new File("src/main/resources/storage/person.json"), new ArrayList<Person>());
         writer.writeValue(new File("src/main/resources/storage/place.json"), new ArrayList<Place>());
         writer.writeValue(new File("src/main/resources/storage/period.json"), new ArrayList<Period>());
         // Tạo document từ url dòng lịch sử
         Document document = Jsoup.connect(URI + TIMELINE_HREF).get();
+        System.out.println(document);
         Element mainContext = document.getElementById("Mod88");
         mainContext = mainContext.getElementsByClass("module-ct").first();
 
         // Crawler các thời kỳ lịch sử
         List<Period> periods = new ArrayList<>();
         Elements periodEs = mainContext.getElementsByTag("li");
+        System.out.println(periodEs);
         for (Element periodE:periodEs) {
-            String source = periodE.getElementsByTag("a").get(0).attr("source");
-            String name = periodE.getElementsByTag("a").get(0).text();
+            String source = periodE.getElementsByTag("a").attr("source");
+            String name = periodE.getElementsByTag("a").text();
             Period period = new Period(name,source);
+            System.out.println(source);
             period.setInfo();
             
 			
-            // Print
+            
             System.out.println("=>" + period.getName());
-            for (Person person:period.getPeople()) {
-                System.out.println(person.getHref());
-                System.out.println(person.getName());
+            for (Person person:period.getPersonRelated()) {
                 person.setInfo();
-                System.out.println("\tSinh: " + person.getBirth() + "\n"
-                        + "\tMất: " + person.getDeath() + "\n"
-                        + "\tNiên hiệu: " + person.getAliases() + "\n"
-                        + "\tTiền nhiệm: " + person.getPredecessor() + "\n"
-                        + "\tKế nhiệm: " + person.getSuccessor() + "\n"
-                        + "\tTrị vì: " + person.getReignTime() + "\n"
-                        + "\tTên thật: " + person.getRealName() + "\n");
-
             }
-            List<Person> listPerson = Arrays.asList(reader.readValue(new File("src/main/resources/storage/people.json"), Person[].class));
+            List<Person> listPerson = Arrays.asList(reader.readValue(new File("src/main/resources/storage/person.json"), Person[].class));
             List<Person> people = new ArrayList<>(listPerson);
-            people.addAll(period.getPeople());
-            writer.writeValue(new File("src/main/resources/storage/people.json"), people);
-            for (Place place:period.getPlaces()) {
-                System.out.println(place.getHref());
-                System.out.println(place.getName());
+            people.addAll(period.getPersonRelated());
+            writer.writeValue(new File("src/main/resources/storage/person.json"), people);
+            for (Place place:period.getPlaceRelated()) {
                 place.setInfo();
-                System.out.println("\tQuốc gia: " + place.getNational() + "\n"
-                        + "\tVị trí: " + place.getLocation() + "\n"
-                        + "\tTọa độ: " + place.getCoordinates() + "\n"
-                        + "\tDiện tích: " + place.getArea() + "\n");
             }
             List<Place> listPlace = Arrays.asList(reader.readValue(new File("src/main/resources/storage/place.json"), Place[].class));
             List<Place> places = new ArrayList<>(listPlace);
-            places.addAll(period.getPlaces());
+            places.addAll(period.getPlaceRelated());
             writer.writeValue(new File("src/main/resources/storage/place.json"), places);
-            System.out.println("");
             periods.add(period);
         	
 

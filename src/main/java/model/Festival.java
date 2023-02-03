@@ -1,4 +1,4 @@
-package frontend.jsonparse;
+package model;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -10,19 +10,23 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-import frontend.model.Festival;
 
-public class FestivalParse {
-	private static LinkedList<Festival> FestivalObjectList = new LinkedList<Festival>();
+public class Festival extends Model {
+	public Festival(String name, String href) {
+		this.setName(name);
+		this.setHref(href);
+	}
 	public static LinkedList<Festival> readFileJson()
 	{
-		FestivalObjectList.clear();;
+		LinkedList<Festival> festivalObjectList = new LinkedList<Festival>();
 		JSONParser jsonParser = new JSONParser();
 		try {
 			FileReader reader = new FileReader("src\\main\\resources\\storage\\festival.json");
 			Object obj = jsonParser.parse(reader);
-			JSONArray FestivalList = (JSONArray) obj;
-			FestivalList.forEach(Festival -> parseFestivalObject((JSONObject) Festival));
+			JSONArray festivalList = (JSONArray) obj;
+			for(Object festival: festivalList) {
+				festivalObjectList.add(parseFestivalObject((JSONObject)festival));
+			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -33,14 +37,11 @@ public class FestivalParse {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return FestivalObjectList;
+		return festivalObjectList;
 	}
-	private static void parseFestivalObject(JSONObject Festival) {
+	private static Festival parseFestivalObject(JSONObject Festival) {
 		String name = (String) Festival.get("name");
-		String source = (String) Festival.get("source");
-		String time = (String) Festival.get("time");
-		String story = (String) Festival.get("story");
-		String address = (String) Festival.get("address");
-		FestivalObjectList.add(new Festival(name, source, time, address, story));
+		String href = (String) Festival.get("href");
+		return new Festival(name, href);
 	}
 }
