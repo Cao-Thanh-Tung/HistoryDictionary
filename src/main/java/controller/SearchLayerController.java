@@ -18,6 +18,7 @@ import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import screen.MainScreen;
+import service.ServiceSearch;
 
 public class SearchLayerController implements Initializable {
 

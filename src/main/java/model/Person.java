@@ -21,22 +21,24 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Person extends Model{
-    private String period;
-    private String birth;
-    private String death;
-    private String reignTime;
-    private String predecessor;
-    private String successor;
-    private String aliases;
-    private String realName;
-
+    private String period;		// trieu dai
+    private String birth;		// thoi gian sinh
+    private String death;		// thoi gian mat
+    private String reignTime;	//	thoi gian tai vi
+    private String predecessor;	// nguoi tien nhiem
+    private String successor;	// nguoi ke nhiem
+    private String aliases;		// bi danh, ten khac
+    private String realName;	// ten that, ten huy
+    private String role;		// vai tro
+    
+    
+    
     private List<Person> personList = new ArrayList<Person>();
 
     public Person() {
     }
 
-    public Person(String name, String href, String period) {
-        this.setPeriod(period);
+    public Person(String name, String href) {
         this.setName(name);
         this.setHref(href);
     }
@@ -108,11 +110,12 @@ public class Person extends Model{
 
     @Override
     public void setInfo() throws IOException {
-        Document document = Jsoup.connect(Crawler.URI + this.getHref()).timeout(0).get();
+        Document document = Jsoup.connect(Crawler.URI + this.getHref()).get();
         HashMap<String, String> infoKV = new HashMap<>();
         try {
             Element infoElement = document.getElementsByClass("infobox").get(1);
             Elements trElements = infoElement.getElementsByTag("tr");
+            
             for (Element tr : trElements) {
                 infoKV.put(tr.getElementsByTag("th").text().trim(),
                         tr.getElementsByTag("td").text().trim());
@@ -156,7 +159,15 @@ public class Person extends Model{
 		String name = (String) person.get("name");
 		String href = (String) person.get("href");
 		String period = (String) person.get("period");
-		return new Person(name, href, period);
+		return new Person(name, href);
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 }
     

@@ -16,6 +16,8 @@ public class Event extends Model {
 		this.setName(name);
 		this.setHref(href);
 	}
+	
+	
 	public static LinkedList<Event> readFileJson()
 	{
 		LinkedList<Event> eventObjectList = new LinkedList<Event>();
