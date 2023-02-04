@@ -64,19 +64,13 @@ public class NguoiKeSuCrawler {
 			c++;
 			System.out.println(c);
 			if(link.contains("/nhan-vat/")) {
-//				try {
-//					doc = Jsoup.connect(rootURL+link).timeout(0).get();
-//					Elements infobox = doc.select("table.infobox");
-//					System.out.println(infobox);
-//					}catch(IOException e) {
-//						
-//					};
 				try {
 					doc = Jsoup.connect(rootURL+link).get();
 					Element title = doc.getElementsByTag("title").get(0);
 					String name = title.text();
 					name = name.replace("- Người Kể Sử", "");
-					Person place = new Person(name, link);
+					Person person = new Person(name, link);
+					setPersonInfo(doc, person);
 					Elements scriptTags = doc.select("script[data-type*=gsd]");
 					if(scriptTags.size() == 2) {
 						Element scriptTag = scriptTags.get(1);
@@ -84,9 +78,9 @@ public class NguoiKeSuCrawler {
 						JSONParser parser = new JSONParser();
 						JSONObject json = (JSONObject) parser.parse(jsonString);
 						String description = (String) json.get("description");
-						place.setDescription(description);
+						person.setDescription(description);
 					}
-					listPerson.add(place);
+					listPerson.add(person);
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -162,5 +156,134 @@ public class NguoiKeSuCrawler {
 		ServiceWriteJson.writeJsonToFile(listPerson, "src\\main\\resources\\storage\\person.json");
 		ServiceWriteJson.writeJsonToFile(listPlace, "src\\main\\resources\\storage\\place.json");
 		System.out.println("Ket thuc");
+	}
+	
+	private static void setPersonInfo(Document document, Person person) {
+		Elements infobox = document.select("table.infobox tbody");
+        System.out.println(infobox);
+        if(infobox.size() != 0) {
+        	Element a= infobox.get(0);
+        	System.out.println(a);
+        	Elements b = a.select("th:contains(Trị vì)");
+        	if(b.size() != 0) {
+        		Element c = b.get(0);
+        		Element d = c.nextElementSibling();
+        		String n = d.text();
+        		System.out.println(n);
+        		person.setReignTime(n);
+        	}
+        	b = a.select("th:contains(Tiền nhiệm)");
+        	if(b.size() != 0) {
+        		Element c = b.get(0);
+        		Element d = c.nextElementSibling();
+        		String n = d.text();
+        		System.out.println(n);
+        		person.setPredecessor(n);
+        	}
+        	b = a.select("th:contains(Kế nhiệm)");
+        	if(b.size() != 0) {
+        		Element c = b.get(0);
+        		Element d = c.nextElementSibling();
+        		String n = d.text();
+        		System.out.println(n);
+        		person.setSuccessor(n);
+        	}
+        	b = a.select("th:contains(Nhiếp chính)");
+        	if(b.size() != 0) {
+        		Element c = b.get(0);
+        		Element d = c.nextElementSibling();
+        		String n = d.text();
+        		System.out.println(n);
+        		person.setNhiepChinh(n);
+        	}
+        	b = a.select("th:contains(Tên thật)");
+        	if(b.size() != 0) {
+        		Element c = b.get(0);
+        		Element d = c.nextElementSibling();
+        		String n = d.text();
+        		System.out.println(n);
+        		person.setRealName(n);
+        	}
+        	b = a.select("th:contains(Niên hiệu)");
+        	if(b.size() != 0) {
+        		Element c = b.get(0);
+        		Element d = c.nextElementSibling();
+        		String n = d.text();
+        		System.out.println(n);
+        		person.setNienHieu(n);
+        	}
+        	b = a.select("th:contains(Thụy hiệu)");
+        	if(b.size() != 0) {
+        		Element c = b.get(0);
+        		Element d = c.nextElementSibling();
+        		String n = d.text();
+        		System.out.println(n);
+        		person.setThuyHieu(n);
+        	}
+        	b = a.select("th:contains(Miếu hiệu)");
+        	if(b.size() != 0) {
+        		Element c = b.get(0);
+        		Element d = c.nextElementSibling();
+        		String n = d.text();
+        		System.out.println(n);
+        		person.setMieuHieu(n);
+        	}
+        	b = a.select("th:contains(Triểu đại)");
+        	if(b.size() != 0) {
+        		Element c = b.get(0);
+        		Element d = c.nextElementSibling();
+        		String n = d.text();
+        		System.out.println(n);
+        		person.setPeriod(n);
+        	}
+        	b = a.select("th:contains(Thân phụ)");
+        	if(b.size() != 0) {
+        		Element c = b.get(0);
+        		Element d = c.nextElementSibling();
+        		String n = d.text();
+        		System.out.println(n);
+        		person.setFather(n);
+        	}
+        	b = a.select("th:contains(Thân mẫu)");
+        	if(b.size() != 0) {
+        		Element c = b.get(0);
+        		Element d = c.nextElementSibling();
+        		String n = d.text();
+        		System.out.println(n);
+        		person.setMother(n);
+        	}
+        	b = a.select("th:contains(Sinh)");
+        	if(b.size() != 0) {
+        		Element c = b.get(0);
+        		Element d = c.nextElementSibling();
+        		String n = d.text();
+        		System.out.println(n);
+        		person.setBirth(n);
+        	}
+        	b = a.select("th:contains(Mất)");
+        	if(b.size() != 0) {
+        		Element c = b.get(0);
+        		Element d = c.nextElementSibling();
+        		String n = d.text();
+        		System.out.println(n);
+        		person.setDeath(n);
+        	}
+        	b = a.select("th:contains(An táng)");
+        	if(b.size() != 0) {
+        		Element c = b.get(0);
+        		Element d = c.nextElementSibling();
+        		String n = d.text();
+        		System.out.println(n);
+        		person.setAnTang(n);
+        	}
+        	b = a.select("th:contains(Tôn giáo)");
+        	if(b.size() != 0) {
+        		Element c = b.get(0);
+        		Element d = c.nextElementSibling();
+        		String n = d.text();
+        		System.out.println(n);
+        		person.setTonGiao(n);
+        	}
+        }
 	}
 }
