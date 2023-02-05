@@ -30,6 +30,7 @@ public class ItemController extends ListCell<Model> {
         this.setOnMouseClicked(MouseEvent->{
         	mainScreen.contentLayer.toFront();
         	mainScreen.contentLayer.setVisible(true);
+//        	mainScreen.contentLayerController
         });
         
     }

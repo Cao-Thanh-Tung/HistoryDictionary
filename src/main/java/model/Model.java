@@ -9,7 +9,12 @@ public abstract class Model {
     private String name;
     private int id;
     private String description;
-    private List<Model> objectRelated = new LinkedList<Model>();
+    private List<String> eventRelated = new LinkedList<String>();
+    private List<String> festivalRelated = new LinkedList<String>();
+    private List<String> periodRelated = new LinkedList<String>();
+    private List<String> personRelated = new LinkedList<String>();
+    private List<String> placeRelated = new LinkedList<String>();
+    
     public Model() {
     	this.id = _id;
     	_id++;
@@ -17,60 +22,7 @@ public abstract class Model {
     public String getName() {
         return name;
     }
-    public void addAllModelRelated(List<Model> items) {
-    	objectRelated.addAll(items);
-    }
-    public void addModelRelated(Model item) {
-    	objectRelated.add(item);
-    }
-    public List<Model> getModelRelated(){
-    	return this.objectRelated;
-    }
-    public List<Event> getEventRelated(){
-    	List<Event> eventList = new LinkedList<Event>();
-    	for(Model item:objectRelated) {
-    		if(item instanceof Event) {
-    			eventList.add((Event)item);
-    		}
-    	}
-    	return eventList;
-    }
-    public List<Festival> getFestivalRelated(){
-    	List<Festival> festivalList = new LinkedList<Festival>();
-    	for(Model item:objectRelated) {
-    		if(item instanceof Festival) {
-    			festivalList.add((Festival)item);
-    		}
-    	}
-    	return festivalList;
-    }
-    public List<Place> getPlaceRelated(){
-    	List<Place> placeList = new LinkedList<Place>();
-    	for(Model item:objectRelated) {
-    		if(item instanceof Place) {
-    			placeList.add((Place)item);
-    		}
-    	}
-    	return placeList;
-    }
-    public List<Period> getPeriodRelated(){
-    	List<Period> periodList = new LinkedList<Period>();
-    	for(Model item:objectRelated) {
-    		if(item instanceof Period) {
-    			periodList.add((Period)item);
-    		}
-    	}
-    	return periodList;
-    }
-    public List<Person> getPersonRelated(){
-    	List<Person> personList = new LinkedList<Person>();
-    	for(Model item:objectRelated) {
-    		if(item instanceof Person) {
-    			personList.add((Person)item);
-    		}
-    	}
-    	return personList;
-    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -91,5 +43,55 @@ public abstract class Model {
 	}
 	public void setDescription(String description) {
 		this.description = description;
+	}
+	public String getFestivalRelated() {
+		String rs = "";
+		for(String i: festivalRelated) {
+			rs = rs + i+", ";
+		}
+		return rs;
+	}
+	public void setFestivalRelated(List<String> festivalRelated) {
+		this.festivalRelated = festivalRelated;
+	}
+	public String getEventRelated() {
+		String rs = "";
+		for(String i: eventRelated) {
+			rs = rs + i+", ";
+		}
+		return rs;
+	}
+	public void setEventRelated(List<String> eventRelated) {
+		this.eventRelated = eventRelated;
+	}
+	public String getPeriodRelated() {
+		String rs = "";
+		for(String i: periodRelated) {
+			rs = rs + i+", ";
+		}
+		return rs;
+	}
+	public void setPeriodRelated(List<String> periodRelated) {
+		this.periodRelated = periodRelated;
+	}
+	public String getPersonRelated() {
+		String rs = "";
+		for(String i: personRelated) {
+			rs = rs + i+", ";
+		}
+		return rs;
+	}
+	public void setPersonRelated(List<String> personRelated) {
+		this.personRelated = personRelated;
+	}
+	public String getPlaceRelated() {
+		String rs = "";
+		for(String i: placeRelated) {
+			rs = rs + i+", ";
+		}
+		return rs;
+	}
+	public void setPlaceRelated(List<String> placeRelated) {
+		this.placeRelated = placeRelated;
 	}
 }

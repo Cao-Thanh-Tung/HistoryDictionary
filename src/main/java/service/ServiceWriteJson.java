@@ -12,12 +12,6 @@ import model.Person;
 import model.Place;
 
 public class ServiceWriteJson {
-	public static void main(String[] args) {
-		List listObject = new LinkedList();
-		listObject.add(new Person("a","b"));
-		listObject.add(new Person("d","c"));
-		writeJsonToFile(listObject, "src\\main\\resources\\storage\\person.json");
-	}
 	public static void writeJsonToFile(List listObject, String srcStorage) {
 		try {
             FileWriter fw = new FileWriter(srcStorage);
@@ -58,18 +52,36 @@ public class ServiceWriteJson {
 		String json = "{\n"
 				+ createPair("name",event.getName())+",\n"
 				+ createPair("href", event.getHref())+",\n"
-				+ createPair("description", event.getDescription())+"\n"
+				+ createPair("description", event.getDescription())+",\n"
+				+ createPair("thoiGian", event.getThoiGian())+",\n"
+				+ createPair("diaDiem", event.getDiaDiem())+",\n"
+				+ createPair("ketQua", event.getKetQua())+",\n"
+				+ createPair("thamChien", event.getThamChien())+",\n"
+				+ createPair("chiHuy", event.getChiHuy())+",\n"
+				+ createPair("lucLuong", event.getLucLuong())+",\n"
+				+ createPair("tonThat", event.getTonThat())+"\n"
 				+ "}";
 		return json;
 	}
 	private static String parseFestivalToJson(Festival festival) {
-		return "";
+		String json = "{\n"
+				+ createPair("name",festival.getName())+",\n"
+				+ createPair("href", festival.getHref())+",\n"
+				+ createPair("description", festival.getDescription())+"\n"
+				+ createPair("ngayBatDau", festival.getNgayBatDau())+",\n"
+				+ createPair("viTri", festival.getViTri())+",\n"
+				+ createPair("lanDauToChuc", festival.getLanDauToChuc())+",\n"
+				+ createPair("nhanVatLienQuan", festival.getNhanVatLienQuan())+",\n"
+				+ createPair("ghiChu", festival.getGhiChu())+"\n"
+				+ "}";
+		return json;
 	}
 	private static String parsePeriodToJson(Period period) {
 		String json = "{\n"
 				+ createPair("name",period.getName())+",\n"
 				+ createPair("href", period.getHref())+",\n"
-				+ createPair("description", period.getDescription())+"\n"
+				+ createPair("description", period.getDescription())+",\n"
+				+ createPair("time", period.getTime())+"\n"
 				+ "}";
 		return json;
 	}
@@ -104,7 +116,24 @@ public class ServiceWriteJson {
 		String json = "{\n"
 				+ createPair("name",place.getName())+",\n"
 				+ createPair("href", place.getHref())+",\n"
-				+ createPair("description", place.getDescription())+"\n"
+				+ createPair("description", place.getDescription())+",\n"
+				+ createPair("toaDo", place.getToaDo())+",\n"
+				+ createPair("viTri", place.getViTri())+",\n"
+				+ createPair("dienTich", place.getDienTich())+",\n"
+				+ createPair("chieuCao", place.getChieuCao())+",\n"
+				+ createPair("thoiGianXayDung", place.getThoiGianXayDung())+",\n"
+				+ createPair("danSo", place.getDanSo())+",\n"
+				+ createPair("matDo", place.getMatDo())+",\n"
+				+ createPair("quocGia", place.getQuocGia())+",\n"
+				+ createPair("tinh", place.getTinh())+",\n"
+				+ createPair("huyen", place.getHuyen())+",\n"
+				+ createPair("maHanhChinh", place.getMaHanhchinh())+",\n"
+				+ createPair("leHoi", place.getLehoi())+",\n"
+				+ createPair("nguon", place.getNguon())+",\n"
+				+ createPair("phuLuu", place.getPhuLuu())+",\n"
+				+ createPair("chieuDai", place.getChieudai())+",\n"
+				+ createPair("luuLuong", place.getLuuLuong())+",\n"
+				+ createPair("doSau", place.getDoSau())+"\n"
 				+ "}";
 		return json;
 	}
