@@ -21,11 +21,11 @@ public class ServiceSearch extends Service<LinkedList<Model>> {
     private LinkedList<Place> placeList;
     private boolean typeFilter[] = new boolean[6]; 
     public ServiceSearch() {
-    	periodList = Period.readFileJson();
-    	eventList = Event.readFileJson();
-    	festivalList = Festival.readFileJson();
-    	personList = Person.readFileJson();
-    	placeList = Place.readFileJson();
+    	periodList = ServiceReadJson.readFileJsonToPeriodList();
+    	eventList = ServiceReadJson.readFileJsonToEventList();
+    	festivalList = ServiceReadJson.readFileJsonToFestivalList();
+    	personList = ServiceReadJson.readFileJsonToPersonList();
+    	placeList = ServiceReadJson.readFileJsonToPlaceList();
     }
     
 	@Override

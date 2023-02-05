@@ -11,6 +11,7 @@ public class MainScreen extends Application {
 
 	public Parent searchLayer;
 	public Parent contentLayer;
+	public ContentLayerController contentLayerController;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		launch();
@@ -32,6 +33,7 @@ public class MainScreen extends Application {
 //		get contentScreen
 		FXMLLoader contentLayerLoader = new FXMLLoader(getClass().getResource("/fxml/contentLayer.fxml"));
 		ContentLayerController contentLayerController = new ContentLayerController();
+		this.contentLayerController = contentLayerController;
 		contentLayerLoader.setController(contentLayerController);
 		contentLayer = contentLayerLoader.load();
 		contentLayer.getStylesheets().add(getClass().getResource("/css/searchbar.css").toExternalForm());
