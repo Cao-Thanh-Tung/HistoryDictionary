@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -30,13 +31,13 @@ public class ServiceReadJson {
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		return eventObjectList;
 	}
@@ -61,6 +62,11 @@ public class ServiceReadJson {
 		event.setLucLuong(lucLuong);
 		event.setTonThat(tonThat);
 		event.setDescription(description);
+		event.setEventRelated(readRelated(eventJson, "eventRelated"));
+		event.setFestivalRelated(readRelated(eventJson, "festivalRelated"));
+		event.setPeriodRelated(readRelated(eventJson, "periodRelated"));
+		event.setPersonRelated(readRelated(eventJson, "personRelated"));
+		event.setPlaceRelated(readRelated(eventJson, "placeRelated"));
 		return event;
 	}
 	
@@ -77,13 +83,13 @@ public class ServiceReadJson {
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		return festivalObjectList;
 	}
@@ -101,6 +107,11 @@ public class ServiceReadJson {
 		festival.setLanDauToChuc(lanDauToChuc);
 		festival.setNhanVatLienQuan(nhanVatLienQuan);
 		festival.setGhiChu(ghiChu);
+		festival.setEventRelated(readRelated(festivalJson, "eventRelated"));
+		festival.setFestivalRelated(readRelated(festivalJson, "festivalRelated"));
+		festival.setPeriodRelated(readRelated(festivalJson, "periodRelated"));
+		festival.setPersonRelated(readRelated(festivalJson, "personRelated"));
+		festival.setPlaceRelated(readRelated(festivalJson, "placeRelated"));
 		return festival;
 	}
 	public static LinkedList<Period> readFileJsonToPeriodList()
@@ -116,13 +127,13 @@ public class ServiceReadJson {
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		return periodObjectList;
 	}
@@ -134,6 +145,11 @@ public class ServiceReadJson {
 		String description = (String) periodJson.get("description");
 		period.setDescription(description);
 		period.setTime(time);
+		period.setEventRelated(readRelated(periodJson, "eventRelated"));
+		period.setFestivalRelated(readRelated(periodJson, "festivalRelated"));
+		period.setPeriodRelated(readRelated(periodJson, "periodRelated"));
+		period.setPersonRelated(readRelated(periodJson, "personRelated"));
+		period.setPlaceRelated(readRelated(periodJson, "placeRelated"));
 		return period;
 	}
 	
@@ -150,13 +166,13 @@ public class ServiceReadJson {
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		return personObjectList;
 	}
@@ -202,6 +218,11 @@ public class ServiceReadJson {
 		person.setTheThiep(theThiep);
 		person.setRole(role);
 		person.setDescription(description);
+		person.setEventRelated(readRelated(personJson, "eventRelated"));
+		person.setFestivalRelated(readRelated(personJson, "festivalRelated"));
+		person.setPeriodRelated(readRelated(personJson, "periodRelated"));
+		person.setPersonRelated(readRelated(personJson, "personRelated"));
+		person.setPlaceRelated(readRelated(personJson, "placeRelated"));
 		return person;
 	}
 	
@@ -218,13 +239,13 @@ public class ServiceReadJson {
 			}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+//			e.printStackTrace();
 		}
 		return placeObjectList;
 	}
@@ -268,6 +289,23 @@ public class ServiceReadJson {
 		place.setLuuLuong(luuLuong);
 		place.setDoSau(doSau);
 		place.setDescription(description);
+		place.setEventRelated(readRelated(placeJson, "eventRelated"));
+		place.setFestivalRelated(readRelated(placeJson, "festivalRelated"));
+		place.setPeriodRelated(readRelated(placeJson, "periodRelated"));
+		place.setPersonRelated(readRelated(placeJson, "personRelated"));
+		place.setPlaceRelated(readRelated(placeJson, "placeRelated"));
 		return place;
+	}
+	
+	private static List<String> readRelated(JSONObject objectJson, String key){
+		String related = (String) objectJson.get(key);
+		List<String> a = new LinkedList<String>();
+		if(related != null) {
+			String[] relatedList = related.split(",");
+			for(String i: relatedList) {
+				a.add(i);
+			}
+		}
+		return a;
 	}
 }

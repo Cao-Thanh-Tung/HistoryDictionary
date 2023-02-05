@@ -13,7 +13,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
+
 import screen.MainScreen;
+import service.ServiceDisplayInfo;
 
 public class ItemController extends ListCell<Model> {
     @FXML
@@ -30,9 +32,10 @@ public class ItemController extends ListCell<Model> {
         this.setOnMouseClicked(MouseEvent->{
         	mainScreen.contentLayer.toFront();
         	mainScreen.contentLayer.setVisible(true);
-//        	mainScreen.contentLayerController
+        	mainScreen.contentLayerController.vb_contentWrapper = ServiceDisplayInfo.displayInfo(mainScreen.contentLayerController.vb_contentWrapper, this.model);
+        	mainScreen.contentLayerController.tf_searchBarSmall.setText(this.model.getName());
         });
-        
+     
     }
     
     private void loadFXML() {
@@ -75,4 +78,5 @@ public class ItemController extends ListCell<Model> {
         }
     }
 
+	
 }

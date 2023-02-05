@@ -59,7 +59,12 @@ public class ServiceWriteJson {
 				+ createPair("thamChien", event.getThamChien())+",\n"
 				+ createPair("chiHuy", event.getChiHuy())+",\n"
 				+ createPair("lucLuong", event.getLucLuong())+",\n"
-				+ createPair("tonThat", event.getTonThat())+"\n"
+				+ createPair("tonThat", event.getTonThat())+",\n"
+				+ createPair("eventRelated", event.getEventRelated())+",\n"
+				+ createPair("festivalRelated", event.getFestivalRelated())+",\n"
+				+ createPair("periodRelated", event.getPeriodRelated())+",\n"
+				+ createPair("personRelated", event.getPersonRelated())+",\n"
+				+ createPair("placeRelated", event.getPlaceRelated())+"\n"
 				+ "}";
 		return json;
 	}
@@ -67,12 +72,17 @@ public class ServiceWriteJson {
 		String json = "{\n"
 				+ createPair("name",festival.getName())+",\n"
 				+ createPair("href", festival.getHref())+",\n"
-				+ createPair("description", festival.getDescription())+"\n"
+				+ createPair("description", festival.getDescription())+",\n"
 				+ createPair("ngayBatDau", festival.getNgayBatDau())+",\n"
 				+ createPair("viTri", festival.getViTri())+",\n"
 				+ createPair("lanDauToChuc", festival.getLanDauToChuc())+",\n"
 				+ createPair("nhanVatLienQuan", festival.getNhanVatLienQuan())+",\n"
-				+ createPair("ghiChu", festival.getGhiChu())+"\n"
+				+ createPair("ghiChu", festival.getGhiChu())+",\n"
+				+ createPair("eventRelated", festival.getEventRelated())+",\n"
+				+ createPair("festivalRelated", festival.getFestivalRelated())+",\n"
+				+ createPair("periodRelated", festival.getPeriodRelated())+",\n"
+				+ createPair("personRelated", festival.getPersonRelated())+",\n"
+				+ createPair("placeRelated", festival.getPlaceRelated())+"\n"
 				+ "}";
 		return json;
 	}
@@ -81,7 +91,12 @@ public class ServiceWriteJson {
 				+ createPair("name",period.getName())+",\n"
 				+ createPair("href", period.getHref())+",\n"
 				+ createPair("description", period.getDescription())+",\n"
-				+ createPair("time", period.getTime())+"\n"
+				+ createPair("time", period.getTime())+",\n"
+				+ createPair("eventRelated", period.getEventRelated())+",\n"
+				+ createPair("festivalRelated", period.getFestivalRelated())+",\n"
+				+ createPair("periodRelated", period.getPeriodRelated())+",\n"
+				+ createPair("personRelated", period.getPersonRelated())+",\n"
+				+ createPair("placeRelated", period.getPlaceRelated())+"\n"
 				+ "}";
 		return json;
 	}
@@ -108,7 +123,12 @@ public class ServiceWriteJson {
 				+ createPair("successor", person.getSuccessor())+",\n"	
 				+ createPair("role", person.getRole())+",\n"
 				+ createPair("tonGiao", person.getTonGiao())+",\n"
-				+ createPair("description", person.getDescription())+"\n"
+				+ createPair("description", person.getDescription())+",\n"
+				+ createPair("eventRelated", person.getEventRelated())+",\n"
+				+ createPair("festivalRelated", person.getFestivalRelated())+",\n"
+				+ createPair("periodRelated", person.getPeriodRelated())+",\n"
+				+ createPair("personRelated", person.getPersonRelated())+",\n"
+				+ createPair("placeRelated", person.getPlaceRelated())+"\n"
 				+ "}";
 		return json;
 	}
@@ -133,13 +153,19 @@ public class ServiceWriteJson {
 				+ createPair("phuLuu", place.getPhuLuu())+",\n"
 				+ createPair("chieuDai", place.getChieudai())+",\n"
 				+ createPair("luuLuong", place.getLuuLuong())+",\n"
-				+ createPair("doSau", place.getDoSau())+"\n"
+				+ createPair("doSau", place.getDoSau())+",\n"
+				+ createPair("eventRelated", place.getEventRelated())+",\n"
+				+ createPair("festivalRelated", place.getFestivalRelated())+",\n"
+				+ createPair("periodRelated", place.getPeriodRelated())+",\n"
+				+ createPair("personRelated", place.getPersonRelated())+",\n"
+				+ createPair("placeRelated", place.getPlaceRelated())+"\n"
 				+ "}";
 		return json;
 	}
 	private static String createPair(String key, String value) {
-		if(value != null) {			
-			return "\t\""+key+"\": "+ "\""+value+"\"";
+		if(value != null) {	
+			String newValue = value.replace("\"","\\\"");
+			return "\t\""+key+"\": "+ "\""+newValue+"\"";
 		}else {			
 			return "\t\""+key+"\": null";
 		}
