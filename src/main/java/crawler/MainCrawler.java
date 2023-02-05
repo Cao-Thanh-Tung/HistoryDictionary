@@ -12,6 +12,9 @@ import model.Place;
 import service.ServiceWriteJson;
 
 public class MainCrawler {
+	public static void main(String[] args) {
+		crawl();
+	}
 	public static void crawl() {
 		List<Model> modelCrawledList = new LinkedList<Model>();
 		List<ICrawler> crawlerList= new LinkedList<ICrawler>();

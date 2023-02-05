@@ -80,7 +80,7 @@ public class NguoiKeSuCrawler implements ICrawler {
 						listModel.add(person);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+//						e.printStackTrace();
 					}
 				}else if(link.contains("/dia-danh/")) {
 					try {
@@ -103,7 +103,7 @@ public class NguoiKeSuCrawler implements ICrawler {
 						listModel.add(place);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+//						e.printStackTrace();
 					}
 				}else if(link.contains("/tu-lieu/quan-su/")) {
 					try {
@@ -126,7 +126,7 @@ public class NguoiKeSuCrawler implements ICrawler {
 						listModel.add(event);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+//						e.printStackTrace();
 					}
 				}else if(link.contains("/dong-lich-su/")) {
 					try {
@@ -148,7 +148,7 @@ public class NguoiKeSuCrawler implements ICrawler {
 						listModel.add(period);
 					} catch (Exception e) {
 						// TODO Auto-generated catch block
-						e.printStackTrace();
+//						e.printStackTrace();
 					}
 				}
 			}

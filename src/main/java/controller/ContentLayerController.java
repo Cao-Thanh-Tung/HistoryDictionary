@@ -13,8 +13,4 @@ public class ContentLayerController {
 	public TextField tf_searchBarSmall;
 	@FXML
 	public VBox vb_contentWrapper;
-	public ContentLayerController() {
-		
-	}
-	
 }
